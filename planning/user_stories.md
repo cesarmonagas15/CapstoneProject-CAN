@@ -18,7 +18,6 @@ Pod Members: **Cesar, Ana, Nara**
 
 - User Persona #2
 1. Working adult
-2. A registered user who wants to search recipes that align with my dietary restrictions, to easily find attractive options that adapt to my lifestyle.
 
 ## User Stories
 
