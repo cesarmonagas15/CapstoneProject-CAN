@@ -26,7 +26,7 @@ Pod Members: **Cesar, Ana, Nara**
 2. As a registered user, I want to search recipes and filter through specific ingredients, to save money and cook with available ingredients at home.
 3. As a registered user, I want to search recipes that align with my dietary restrictions, to easily find attractive options that adapt to my lifestyle.
 4. As a registered user, I want to be able to save recipes so that I can easily look at them later
-5. As an uregistered user, I want to see and search trending recipes so I can get ideas for meals
+5. As an unregistered user, I want to see and search trending recipes so I can get ideas for meals
 
 ## Wireframe (Bonus)
 
