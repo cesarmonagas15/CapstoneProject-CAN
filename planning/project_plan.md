@@ -16,7 +16,7 @@ List the current user stories you will implement.
 
 ## Pages/Screens
 
-###Unregistered Users:
+### Unregistered Users:
 Home Page 
 Sign in
 Register
@@ -25,7 +25,7 @@ About us (creator stories)
 Latest Recipes
 Recipe Details 
 
-###Registered Users:
+### Registered Users:
 Home Page
 Sign In
 Register
