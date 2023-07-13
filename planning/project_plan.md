@@ -17,23 +17,23 @@ List the current user stories you will implement.
 ## Pages/Screens
 
 ### Unregistered Users:
-Home Page 
-Sign in
-Register
-Get Involved (Food Shift)
-About us (creator stories)
-Latest Recipes
-Recipe Details 
+-Home Page 
+-Sign in
+-Register
+-Get Involved (Food Shift)
+-About us (creator stories)
+-Latest Recipes
+-Recipe Details 
 
 ### Registered Users:
-Home Page
-Sign In
-Register
-User Dashboard
-Get Involved (Food Shift)
-About us  (creator stories)
-Latest Recipes
-Recipe Details 
+-Home Page
+-Sign In
+-Register
+-User Dashboard
+-Get Involved (Food Shift)
+-About us  (creator stories)
+-Latest Recipes
+-Recipe Details 
 
 ## Data Model
 
