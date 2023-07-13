@@ -2,13 +2,13 @@
 
 # SITE Capstone Project
 
-SITE Course Year: **20__**
+SITE Course Year: **2023**
 
-Cohort: **Add Company Sponsor Name**
+Cohort: **Codepath - Cohort 2**
 
-Team Member Names:**Insert Team Member Names**
+Team Member Names:** Ana Camba, Nara Macias, Cesar Monagas**
 
-Mentors Names: **Insert Professional Mentor Names**
+Mentors Names: **Robert Brewer, Roshni Datta, Ashwini Kalpana Ningegowda**
 
 Project Code Repository Links
 
