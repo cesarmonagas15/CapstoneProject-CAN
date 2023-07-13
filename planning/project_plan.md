@@ -1,6 +1,6 @@
 # Project Plan
 
-Pod Members: **Add Pod Members Names**
+Pod Members: **Cesar, Ana, Nara**
 
 ## Problem Statement and Description
 
