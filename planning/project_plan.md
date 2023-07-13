@@ -2,11 +2,11 @@
 
 Pod Members: **Cesar, Ana, Nara**
 
-### Problem Statement
+## Problem Statement
 
- “Food waste in our homes makes up about 39% of all food waste - about 42 billion pounds of food waste”.
+ “Food waste in our homes makes up about 39% of all food waste - about 42 billion pounds of food waste.”
  
-### Project Solution
+## Project Solution
 
 Provide a  platform that empowers adults to combat food waste by offering a unique recipe filtering system based on ingredients available in their pantries. Through a partnership with Food Shift, a leading food recovery organization, we provide users with valuable resources to act against food waste.
 
