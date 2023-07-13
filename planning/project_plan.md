@@ -34,24 +34,32 @@ Provide a  platform that empowers adults to combat food waste by offering a uniq
 ## Pages/Screens
 
 ### Unregistered Users:
-- Home Page
+- Landing Page
 - Sign in
 - Register
 - Get Involved (Food Shift)
 - About us (creator stories)
-- Latest Recipes
 - Recipe Details 
 
 ### Registered Users:
-- Home Page
+- Landing Page
 - Sign In
 - Register
 - User Dashboard
 - Get Involved (Food Shift)
 - About us (creator stories)
-- Latest Recipes
-- Recipe Details /
+- Recipe Details 
 
+### Wireframes 
+
+- Landing Page
+![homepage wireframe](./wireframe_img/Screenshot%202023-07-13%20at%203.33.33%20PM.png)
+
+- Product Details Page
+![Product Details Page](./wireframe_img/Screenshot%202023-07-13%20at%203.36.08%20PM.png)
+
+- User Dashboard
+![User Dashboard](./wireframe_img/Screenshot%202023-07-13%20at%203.33.53%20PM.png)
 
 ## Data Model
 
