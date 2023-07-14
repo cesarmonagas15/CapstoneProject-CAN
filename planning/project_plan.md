@@ -96,4 +96,12 @@ Favorites
 | Read   | GET       | Get favorite recipes of the user based on the logged-in user's ID from the database (get recipe information bulk) | g | GET `https://api.spoonacular.com/recipes/informationBulk` |
 | Read   | GET       | Get information of a specific recipe by ID in the product details page (get recipe information) |               | Display recipe details page<br>GET `https://api.spoonacular.com/recipes/{id}/information` |
 
-***Don't forget to set up your Issues, Milestones, and Project Board!***
+
+
+## Issues 
+Some of the issues that we have encounter while creating the project plan entailed the github workflow, merge conflicts and making sure that the API that we selected was able to provide enough information for the tasks on our user stories.
+
+## Milestones, and Project Board
+
+![Milestones, and Project Board](./wireframe_img/Trello%20Board.png)
+
