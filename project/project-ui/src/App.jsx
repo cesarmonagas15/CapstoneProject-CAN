@@ -8,16 +8,16 @@ import Navbar from './Navbar/Navbar';
 
 function App() {
   const [appState, setAppState] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     
     <div className="app">
       <BrowserRouter>
         <Navbar
-          // isLoggedIn={isLoggedIn}
-          // setIsLoggedIn={setIsLoggedIn}
-          // setAppState={setAppState}
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+          setAppState={setAppState}
         />
       
         <Routes>
