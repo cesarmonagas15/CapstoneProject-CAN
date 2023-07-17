@@ -3,6 +3,7 @@ import axios from "axios";
 import "./RegistrationPage.css"
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import jwtDecode from "jwt-decode"
 
 export default function RegistrationPage() {
 
