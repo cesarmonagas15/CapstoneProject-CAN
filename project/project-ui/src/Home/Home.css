@@ -1,0 +1,127 @@
+.Hero {
+    position: relative;
+  }
+  
+  .Hero img {
+    width: 100%;
+    height: 600px; /* Set the desired height */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+  }
+  
+  .Hero .ImageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6); /* White with opacity */
+  }
+  
+  .HeroOverlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    z-index: 1; /* Ensure the overlay is on top of the image */
+  }
+  
+  .HeroOverlay h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .SearchInput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .SearchInput input {
+    padding: 10px 50px;
+    border: none;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  .SearchInput button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #ff6600;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .SearchInput button:hover {
+    background-color: #e65c00;
+  }
+
+  .HomeContainer {
+    text-align: center;
+  }
+  
+  .SubNavbar {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .SubNavbar span {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: bold;
+    border: 1px solid #000000; /* Black border */
+    border-radius: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .SubNavbar span.active {
+    background-color: #ff6600; /* Orange */
+    color: #ffffff; /* White text */
+    border: none; /* No border */
+  }
+  
+  .DietaryOptions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .DietaryOptions button {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000; /* Black border */
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .DietaryOptions button.active {
+    background-color: #ff6600; /* Orange */
+    color: #ffffff; /* White text */
+    border: none; /* No border */
+  }
+  
+  .DietaryOptions button:hover {
+    background-color: #bb784b; /* Orange on hover */
+    color: #ffffff; /* White text on hover */
+  }
+  
+  
+  
+  
+  
+  
