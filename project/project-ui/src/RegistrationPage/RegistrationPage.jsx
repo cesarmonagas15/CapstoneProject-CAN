@@ -1,4 +1,5 @@
 import * as React from "react"
+import axios from "axios";
 import "./RegistrationPage.css"
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -66,7 +67,7 @@ export default function RegistrationPage() {
 
     try {
       const res = await axios.post(
-        "https://lifetracker-server.onrender.com/auth/register",
+        "http://localhost:3001/auth/register",
         {
           firstName: form.firstName,
           lastName: form.lastName,
@@ -81,10 +82,10 @@ export default function RegistrationPage() {
         localStorage.setItem("token", token);
 
         const decodedToken = jwtDecode(token);
-        setAppState(decodedToken);
+        // setAppState(decodedToken);
 
         setIsLoading(false);
-        navigate("/activity");
+        // navigate("/activity");
       } else {
         setErrors((e) => ({
           ...e,
@@ -121,7 +122,7 @@ export default function RegistrationPage() {
         <h2 className="header">Create an Account</h2>
         <div className="form-container">
           {Boolean(errors.form) && <span className="error">{errors.form}</span>}
-          <form >
+          <form onSubmit={handleOnSubmit}>
             <div className="input-container">
               <div role="group" className="email-input">
                 <input
