@@ -16,7 +16,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setAppState, appStat
   };
   const loggedIn = (
     <>
-    <Link to="/Dashboard">
+    <Link to="/dashboard">
           <button className="user-button">
 
           <svg

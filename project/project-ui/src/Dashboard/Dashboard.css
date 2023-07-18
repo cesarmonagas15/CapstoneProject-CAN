@@ -1,0 +1,35 @@
+.user-dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dashboard-header {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-header .feather-user{
+    width: 100px;
+    height: 70px;
+}
+
+.recipes-section {
+    margin-top: 50px;
+    text-align: left;
+    width: 80%;
+}
+
+.search-more{
+    border-radius: 6px;
+    border: 1px solid #E07A5F;
+    background: #FFF;
+}
+.dashboard-footer {
+  background-color: #f0f0f0;
+  padding: 8px;
+  text-align: center;
+}

@@ -68,7 +68,7 @@ body {
     font-size: 16px;
   }
   
-  .feather-user {
+  .user-button .feather-user {
     width: 24px;
     height: 24px;
     margin-right: 8px; /* Adjust this value to create space between the icon and the name */

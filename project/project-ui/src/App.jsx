@@ -7,6 +7,7 @@ import RegistrationPage from './RegistrationPage/RegistrationPage';
 import Navbar from './Navbar/Navbar';
 import jwtDecode from "jwt-decode";
 import LoginPage from './LoginPage/LoginPage';
+import Dashboard from './Dashboard/Dashboard';
 
 function App() {
   const [appState, setAppState] = useState({});
@@ -54,6 +55,14 @@ function App() {
                 setAppState={setAppState}
                 setIsLoggedIn={setIsLoggedIn}
               />
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+                <Dashboard
+                  appState={appState}
+                />
             }
           />
         </Routes>
