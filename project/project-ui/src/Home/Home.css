@@ -50,7 +50,7 @@
     padding: 10px 20px;
     border: none;
     border-radius: 20px;
-    background-color: #ff6600;
+    background-color: #E07A5F;
     color: #ffffff;
     font-weight: bold;
     cursor: pointer;
@@ -74,10 +74,11 @@
   .SubNavbar span {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #efeded;  /* Gray background */
+    border: 1px solid #d2cfcf; /* Black border */
+    color: black;  /* Black text */
     font-weight: bold;
-    border: 1px solid #000000; /* Black border */
+    
     border-radius: 20px;
     margin-right: 10px;
     cursor: pointer;
@@ -85,9 +86,9 @@
   }
   
   .SubNavbar span.active {
-    background-color: #ff6600; /* Orange */
-    color: #ffffff; /* White text */
-    border: none; /* No border */
+    background-color: #81B29A;  /* Light blue background */
+    color: white;  /* White text */
+    border: 1px solid #ffffff; /* Black border */
   }
   
   .DietaryOptions {
@@ -98,9 +99,9 @@
   }
   
   .DietaryOptions button {
-    background-color: #ffffff;
-    color: #000000;
-    border: 1px solid #000000; /* Black border */
+    background-color: #efeded;  /* Gray background */
+    border: 1px solid #d2cfcf; /* Black border */
+    color: black;  /* Black text */
     padding: 10px 20px;
     border-radius: 20px;
     margin: 5px;
@@ -110,18 +111,215 @@
   }
   
   .DietaryOptions button.active {
-    background-color: #ff6600; /* Orange */
-    color: #ffffff; /* White text */
-    border: none; /* No border */
+    background-color: #81B29A;  /* Light blue background */
+    color: white;  /* White text */
+    border: 1px solid #ffffff; /* Black border */
   }
   
   .DietaryOptions button:hover {
-    background-color: #bb784b; /* Orange on hover */
-    color: #ffffff; /* White text on hover */
+    background-color: #81B29A;  /* Light blue background */
+    color: white;  /* White text */
+    border: 1px solid #ffffff; /* Black border */
+  }
+
+
+  /* CSS OF INGREDIENT TABLE FILTER */
+
+#IngredientSearchCard {
+    box-sizing: border-box;
+}
+
+:root {
+    --white: #FFFFFF  ;
+  --bodyBg: #d6d6d6;
+    
+}
+#IngredientSearchCard {
+    background: var(--bodyBg);
+    
+    line-height: 1.5;
+}
+@mixin poCentering {
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#IngredientSearchCard {
+    width: 550px;
+    height: 654px;
+    background: var(--white);
+    padding: 30px;  /* Increased padding */
+    /* box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902); */
+    /* overflow-y: auto; */
+
+@include poCentering;
+  border-radius: 5px;
+}
+
+#searchInput {
+    width: 90%;
+    font-size: 20px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: none;  /* Remove border */
+    border-radius: 10px;  /* Rounded corners */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);  /* Subtle shadow */
+    transition: box-shadow 0.3s ease;  /* Smooth transition for the shadow */
+}
+
+#searchInput:focus {
+    outline: none;  /* Remove outline */
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, .3);  /* Increased shadow when focused */
+}
+
+
+
+.ingredient-button {
+    display: inline-block;
+    font-size: 15xpx;  
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    text-align: center;
+    border-radius: 20px;  /* Make the buttons rounded */
+    border: none;  /* Remove default border */
+    background-color: #efeded;  /* Gray background */
+    border: 1px solid #d2cfcf; /* Black border */
+    color: black;  /* Black text */
+    transition: background-color 0.3s ease;  /* Smooth transition effect */
+}
+
+/* Change the color of the button when it's clicked */
+.ingredient-button:active {
+    background-color: #81B29A;  /* Light blue background */
+    color: white;  /* White text */
+    border: 1px solid #ffffff; /* Black border */
+}
+.ingredient-button.selected {
+    background-color: #81B29A;  /* Light blue background */
+    color: white;  /* White text */
+    border: 1px solid #ffffff; 
+
+}
+
+.buttons-container {
+    max-height: 551px;  /* Adjust this to change the height of the container */
+    overflow-y: auto;  /* Show a vertical scrollbar when the content overflows */
+    overflow-x: hidden;  /* Hide horizontal overflow */
+}
+
+#buttons-container-wrapper {
+    position: relative;
+  overflow-y: hidden;
+    max-height: 551px; /* The height you specified */
+}
+
+#buttons-container-wrapper:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+/*     background: linear-gradient(to bottom, transparent, white 95%); */
+    pointer-events: none;
+}
+
+
+
+#active-ingredients {
+    overflow-y: auto;
+  
+    max-height: 100px;  /* Adjust this to change the height of the active ingredients container */
+}
+#available-ingredients {
+    margin-top: 15px; /* Adjust this to change the height of the active ingredients container */
+}
+  
+
+.home-content{
+
+    display: flex;
+}
+
+.product-grid{
+    background-color: purple;
+    margin-left: 40px;
+    width: 1500px;
+    height: 800px;
+}
+
+.home-title{
+
+    text-align: left;
+    margin-left: 40px;
+}
+
+.submitIngredients {
+
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #E07A5F;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitIngredients:hover {
+    background-color: #f49251;
   }
   
+/* SCROLL BARS ON CONTAINERS */
+
+#buttons-container-wrapper {
+    position: relative;
+    overflow-y: hidden;
+    max-height: 551px; /* The height you specified */
+  }
   
+  #buttons-container-wrapper:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(to bottom, transparent, white 95%); */
+    pointer-events: none;
+  }
   
+  .buttons-container {
+    max-height: 551px; /* Adjust this to change the height of the container */
+    overflow-y: auto; /* Show a vertical scrollbar when the content overflows */
+    overflow-x: hidden; /* Hide horizontal overflow */
+  }
   
+  #active-ingredients,
+  #available-ingredients {
+    overflow-y: scroll; /* Use 'scroll' instead of 'auto' to always show scrollbars */
+    scrollbar-width: thin; /* Show the scrollbar on WebKit based browsers */
+  }
   
+  #active-ingredients::-webkit-scrollbar,
+  #available-ingredients::-webkit-scrollbar {
+    width: 6px; /* Adjust the width of the scrollbar */
+  }
+  
+  #active-ingredients::-webkit-scrollbar-thumb,
+  #available-ingredients::-webkit-scrollbar-thumb {
+    background-color: #E07A5F; /* Color of the scrollbar thumb */
+    border-radius: 3px; /* Rounded corners for the thumb */
+  }
+  
+  #active-ingredients::-webkit-scrollbar-track,
+  #available-ingredients::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color of the scrollbar track */
+  }
   
