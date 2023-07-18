@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import jwtDecode from "jwt-decode"
 
-export default function RegistrationPage() {
+export default function RegistrationPage( {setAppState, setIsLoggedIn }) {
 
 
   const navigate = useNavigate();
@@ -83,10 +83,10 @@ export default function RegistrationPage() {
         localStorage.setItem("token", token);
 
         const decodedToken = jwtDecode(token);
-        // setAppState(decodedToken);
-
+        setAppState(decodedToken);
+        setIsLoggedIn(true);
         setIsLoading(false);
-        // navigate("/activity");
+        navigate("/");
       } else {
         setErrors((e) => ({
           ...e,

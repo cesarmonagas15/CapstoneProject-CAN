@@ -3,10 +3,11 @@ const { SECRET_KEY } = require("../config")
 const { validateFields } = require("./validate")
 const generateToken = (data) => jwt.sign(data, SECRET_KEY)
 const createUserJwt = (user) => {
-  validateFields({ required: ["id", "email"], obj: user, location: "token generation" })
+  validateFields({ required: ["id", "email", "first_name"], obj: user, location: "token generation" })
   const payload = {
     id: user.id,
-    email: user.email
+    email: user.email,
+    firstName: user.first_name
   }
   return generateToken(payload)
 }

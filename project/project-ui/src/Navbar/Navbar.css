@@ -36,8 +36,11 @@ body {
     font-weight: bold;
   }
   
+  .content{
+    display: flex;
+  }
   .buttons button {
-    background-color: #ff6600;
+    background-color: #E07A5F;
     color: #ffffff;
     border: none;
     padding: 12px 24px;
@@ -49,11 +52,26 @@ body {
   }
   
   .buttons button:hover {
-    background-color: #e65c00;
+    background-color: #ff6600;
   }
   
   .buttons button + button {
     margin-left: 10px;
+  }
+
+  .user-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .feather-user {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px; /* Adjust this value to create space between the icon and the name */
   }
   
   

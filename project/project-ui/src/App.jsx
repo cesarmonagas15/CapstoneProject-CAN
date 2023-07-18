@@ -1,14 +1,28 @@
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 import './App.css'
 import * as React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './Home/Home';
 import RegistrationPage from './RegistrationPage/RegistrationPage';
 import Navbar from './Navbar/Navbar';
+import jwtDecode from "jwt-decode";
 
 function App() {
   const [appState, setAppState] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+
+
+  useEffect(() => {
+    // check if user is logged in when user first accesses webpage
+    const token = localStorage.getItem("token");
+    if (token) {
+      // decode stored token
+      const decodedToken = jwtDecode(token);
+      setAppState(decodedToken);
+      setIsLoggedIn(true)
+    }
+  }, []);
 
   return (
     
@@ -18,6 +32,7 @@ function App() {
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
           setAppState={setAppState}
+          appState={appState}
         />
       
         <Routes>
@@ -35,8 +50,8 @@ function App() {
             path="/register"
             element={
               <RegistrationPage
-                // setAppState={setAppState}
-                // setIsLoggedIn={setIsLoggedIn}
+                setAppState={setAppState}
+                setIsLoggedIn={setIsLoggedIn}
               />
             }
           />
