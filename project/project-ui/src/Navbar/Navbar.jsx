@@ -14,7 +14,6 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setAppState, appStat
     setIsLoggedIn(false);
     navigate("/");
   };
-  console.log(appState)
   const loggedIn = (
     <>
     <Link to="/Dashboard">

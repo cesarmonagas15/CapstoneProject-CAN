@@ -120,6 +120,7 @@ export default function RegistrationPage( {setAppState, setIsLoggedIn }) {
     <div className="RegistrationPage">
         <div className="center">
       <div className="register-container">
+      <div className="card">
         <h2 className="header">Create an Account</h2>
         <div className="form-container">
           {Boolean(errors.form) && <span className="error">{errors.form}</span>}
@@ -254,6 +255,7 @@ export default function RegistrationPage( {setAppState, setIsLoggedIn }) {
             </div>
           </form>
         </div>
+      </div>
       </div>
     </div>
 

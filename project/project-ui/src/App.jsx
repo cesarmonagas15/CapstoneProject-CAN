@@ -6,6 +6,7 @@ import Home from './Home/Home';
 import RegistrationPage from './RegistrationPage/RegistrationPage';
 import Navbar from './Navbar/Navbar';
 import jwtDecode from "jwt-decode";
+import LoginPage from './LoginPage/LoginPage';
 
 function App() {
   const [appState, setAppState] = useState({});
@@ -37,15 +38,15 @@ function App() {
       
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route
+          <Route
             path="/login"
             element={
               <LoginPage
-                // setAppState={setAppState}
-                // setIsLoggedIn={setIsLoggedIn}
+                setAppState={setAppState}
+                setIsLoggedIn={setIsLoggedIn}
               />
-            } */}
-          {/* /> */}
+            }
+          />
           <Route
             path="/register"
             element={
