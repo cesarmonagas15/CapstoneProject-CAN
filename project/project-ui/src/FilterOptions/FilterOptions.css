@@ -1,0 +1,56 @@
+.SubNavbar {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .SubNavbar span {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #efeded;  /* Gray background */
+    border: 1px solid #d2cfcf; /* Black border */
+    color: black;  /* Black text */
+    font-weight: bold;
+    
+    border-radius: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .SubNavbar span.active {
+    background-color: #81B29A;  /* Light blue background */
+    color: white;  /* White text */
+    border: 1px solid #ffffff; /* Black border */
+  }
+  
+  .DietaryOptions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .DietaryOptions button {
+    background-color: #efeded;  /* Gray background */
+    border: 1px solid #d2cfcf; /* Black border */
+    color: black;  /* Black text */
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .DietaryOptions button.active {
+    background-color: #81B29A;  /* Light blue background */
+    color: white;  /* White text */
+    border: 1px solid #ffffff; /* Black border */
+  }
+  
+  .DietaryOptions button:hover {
+    background-color: #81B29A;  /* Light blue background */
+    color: white;  /* White text */
+    border: 1px solid #ffffff; /* Black border */
+  }
