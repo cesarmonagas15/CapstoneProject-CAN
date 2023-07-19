@@ -3,7 +3,7 @@
 #buttons-container-wrapper {
     position: relative;
     overflow-y: hidden;
-    max-height: 551px; /* The height you specified */
+    max-height: 100%;
   }
   
   #buttons-container-wrapper:before {
