@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import jwtDecode from "jwt-decode";
 import axios from "axios";
 import "./LoginPage.css";
 
@@ -37,9 +36,9 @@ export default function Login({ setAppState, setIsLoggedIn }) {
       if (res?.data) {
         const token = res.data.token;
         localStorage.setItem("token", token);
-
-        const decodedToken = jwtDecode(token);
-        setAppState(decodedToken);
+        // decode token in the backend
+        const response = await axios.post("http://localhost:3001/auth/token", {token});
+        setAppState(response.data.decodedToken);
         setIsLoggedIn(true);
         setIsLoading(false);
         navigate("/");

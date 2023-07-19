@@ -2,7 +2,7 @@ const express = require("express")
 const User = require("../models/user")
 const router = express.Router()
 // const security = require("../middleware/security")
-const { createUserJwt } = require("../utils/tokens");
+const { createUserJwt , validateToken} = require("../utils/tokens");
 
 
 
@@ -16,6 +16,15 @@ router.post("/login", async function (req, res, next) {
     next(err)
   }
 })
+router.post("/token", async function (req, res, next) {
+  try {
+    const decodedToken = await validateToken(req.body.token);
+    return res.status(200).json({ decodedToken })
+  } catch (err) {
+    next(err)
+  }
+})
+
 router.post("/register", async function (req, res, next) {
   try {
     const user = await User.register(req.body)

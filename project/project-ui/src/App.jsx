@@ -1,11 +1,11 @@
 import { useState , useEffect} from 'react'
+import axios from "axios";
 import './App.css'
 import * as React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './Home/Home';
 import RegistrationPage from './RegistrationPage/RegistrationPage';
 import Navbar from './Navbar/Navbar';
-import jwtDecode from "jwt-decode";
 import LoginPage from './LoginPage/LoginPage';
 import Dashboard from './Dashboard/Dashboard';
 
@@ -15,16 +15,21 @@ function App() {
 
 
 
-  useEffect(() => {
+  useEffect( () => {
     // check if user is logged in when user first accesses webpage
     const token = localStorage.getItem("token");
+
+    const decode = async () => {
     if (token) {
-      // decode stored token
-      const decodedToken = jwtDecode(token);
-      setAppState(decodedToken);
+      // decode in the backend
+      const response = await axios.post("http://localhost:3001/auth/token", {token});
+      console.log(response.data.decodedToken)
+      setAppState(response.data.decodedToken);
       setIsLoggedIn(true)
-    }
-  }, []);
+    }}
+
+    decode();
+  }, [])
 
   return (
     

@@ -3,7 +3,6 @@ import axios from "axios";
 import "./RegistrationPage.css"
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import jwtDecode from "jwt-decode"
 
 export default function RegistrationPage( {setAppState, setIsLoggedIn }) {
 
@@ -81,9 +80,9 @@ export default function RegistrationPage( {setAppState, setIsLoggedIn }) {
       if (res?.data?.user) {
         const token = res.data.token;
         localStorage.setItem("token", token);
-
-        const decodedToken = jwtDecode(token);
-        setAppState(decodedToken);
+        // decoding in the backend
+        const response = await axios.post("http://localhost:3001/auth/token", {token});
+        setAppState(response.data.decodedToken);
         setIsLoggedIn(true);
         setIsLoading(false);
         navigate("/");
