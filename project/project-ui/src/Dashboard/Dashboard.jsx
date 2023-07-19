@@ -1,5 +1,7 @@
 import React from "react";
-import './Dashboard.css'
+import './Dashboard.css';
+import { Link } from "react-router-dom";
+import RecipeGrid from "../RecipeGrid/RecipeGrid";
 
 export default function Dashboard({appState}) {
 
@@ -26,13 +28,16 @@ export default function Dashboard({appState}) {
 
         <div className="recipes-section">
           <h2>Your Recipes</h2>
-          <hr/>
-          {/* Add your recipe components, lists, or any other content related to the user's recipes */}
+          <hr className="divider"/>
+          <br/>
+          {/* CHANGE TO FAV RECIPES */}
+          <RecipeGrid/>
         </div>
-
+        <Link to="/">
         <div className="search-more-container">
-        <button className="search-more btn">SEARCH MORE</button>
+        <button className="search-more-btn"><p className="search-more-btn-text">SEARCH MORE</p></button>
         </div>
+        </Link>
     </div>
 
 </>
