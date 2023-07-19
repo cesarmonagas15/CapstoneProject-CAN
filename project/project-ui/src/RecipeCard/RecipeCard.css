@@ -1,10 +1,15 @@
 .recipe-card {
     width: 280px; /* Set a width for the card */
+    height: 340px;
     border: 1px solid #ddd; /* Give it a border */
     border-radius: 15px; /* Increase border radius */
     box-shadow: 0 0 10px rgba(0,0,0,0.15); 
     overflow: hidden; /* Ensure content doesn't spill outside the card */
     transition: transform .3s ease-in-out; /* Transition for hover effect */
+    position: relative; /* Add this */
+    display: flex;
+    flex-direction: column;
+
     /* background: var(--white-200, #F5F2F2); */
   }
     
@@ -19,10 +24,9 @@
   }
     
   .recipe-title {
-
     margin: 15px; /* Add some margin */
-    font-size: 15px; /* Reduce the title font size */
-    text-align: center;
+    font-size: 14px; /* Reduce the title font size */
+    text-align: left;
   }
   
   /* Start of new/modified styles */
@@ -33,6 +37,9 @@
     display: flex;
     justify-content: space-around;
     height: 60px;
+    margin-top: auto;
+
+    
   }
   
   .details-item {
@@ -59,4 +66,26 @@
     font-size: 14px;
     color: #777;
   }
-  
+  .recipe-title-heart {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px; /* Add some horizontal padding */
+    padding-bottom: 5px;
+  }
+  .heart-icon-button {
+    position: absolute; /* Change this */
+    right: 20px; /* Add this to align the button to the right */
+    top: 220px; /* Adjust this to move the button up or down */
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;  /* Add transition here */
+
+}
+  .heart-icon-button svg {
+    font-size: 18px;
+  }
+  .clicked {
+    transform: scale(1.1); /* makes the heart 30% larger */
+    transition: transform 0.4s; /* makes it smoothly transition over 0.3 seconds */
+}
