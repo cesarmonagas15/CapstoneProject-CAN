@@ -78,7 +78,7 @@
     
     line-height: 1.5;
 }
-@mixin poCentering {
+@mixin  poCentering {
     top: 50%;
     right: 50%;
     bottom: 50%;
@@ -89,7 +89,7 @@
 }
 
 #IngredientSearchCard {
-    width: 550px;
+    width: 800px;
     height: 654px;
     background: var(--white);
     padding: 30px;  /* Increased padding */

@@ -24,7 +24,6 @@ export default function Home() {
 
       <FilterOptions />
       
-      <h2 className="home-title">Latest Recipes</h2>
       <div className="home-content">
         <RecipeGrid />
 

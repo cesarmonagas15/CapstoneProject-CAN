@@ -67,18 +67,11 @@
   
  
 .home-content{
-
+    margin-top: 50px;
     display: flex;
     justify-content: space-between;
 }
 
-
-
-.home-title{
-
-    text-align: left;
-    margin-left: 40px;
-}
 
 
   
