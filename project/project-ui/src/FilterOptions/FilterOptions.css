@@ -24,14 +24,14 @@
     border: 1px solid #ffffff; /* Black border */
   }
   
-  .DietaryOptions {
+  .subnavbar-options {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 20px;
   }
   
-  .DietaryOptions button {
+  .subnavbar-options button {
     background-color: #efeded;  /* Gray background */
     border: 1px solid #d2cfcf; /* Black border */
     color: black;  /* Black text */
@@ -43,14 +43,33 @@
     transition: background-color 0.3s ease;
   }
   
-  .DietaryOptions button.active {
+  .subnavbar-options button.active {
     background-color: #81B29A;  /* Light blue background */
     color: white;  /* White text */
     border: 1px solid #ffffff; /* Black border */
   }
   
-  .DietaryOptions button:hover {
+  .subnavbar-options button:hover {
     background-color: #81B29A;  /* Light blue background */
     color: white;  /* White text */
     border: 1px solid #ffffff; /* Black border */
   }
+
+
+.selected-options-button{
+  background-color: #81B29A;  /* Light blue background */
+  color: white;  /* White text */
+  border: 1px solid #ffffff; /* Black border */
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+.selected-options {
+  text-align: left;
+  margin-left: 40px;
+}
