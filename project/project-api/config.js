@@ -5,6 +5,8 @@ require('colors');
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3001;
 const IS_TESTING = process.env.NODE_ENV === 'test';
 const SECRET_KEY = process.env.SECRET_KEY || "secret-dev"
+const SPOONACULAR_API_KEY = process.env.SPOONACULAR_API_KEY;
+
 
 function getDatabaseUri() {
   const dbUser = process.env.DATABASE_USER || 'postgres';
@@ -21,7 +23,9 @@ console.log('project API Config:'.red);
 console.log('PORT:'.blue, PORT);
 console.log('BCRYPT_WORK_FACTOR'.blue, BCRYPT_WORK_FACTOR);
 console.log('Database:'.blue, getDatabaseUri());
+console.log('API Key loaded:'.magenta, !!SPOONACULAR_API_KEY);
 console.log('---');
+
 
 module.exports = {
   PORT,
@@ -29,4 +33,6 @@ module.exports = {
   BCRYPT_WORK_FACTOR,
   getDatabaseUri,
   SECRET_KEY,
+  SPOONACULAR_API_KEY,
+
 };

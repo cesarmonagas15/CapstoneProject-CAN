@@ -5,6 +5,8 @@ const { NotFoundError } = require("./utils/errors")
 
 const config = require("./config")
 const authRoutes = require("./routes/auth")
+const spoonRoutes = require("./routes/spoon")
+
 const app = express();
 
 app.use(cors());
@@ -19,6 +21,10 @@ app.get('/', function(req, res) {
 
 
 app.use("/auth", authRoutes)
+
+app.use("/spoon", spoonRoutes)
+
+
 app.use(function (req, res, next) {
   return next(new NotFoundError())
 })
