@@ -34,10 +34,36 @@ class ApiClient {
     }
   }
 
-  // Get Random Recipes Call 
+
+
+
+
+  // ----------------------------------------SPOONACULAR CALLS START HERE ----------------------------------------//
+
+  // Get Random Recipes Call  (returns the information a given number of random recipes)
   async getRandomRecipes(num) {
     return await this.request({ endpoint: `spoon/recipes/random/${num}`, method: `GET` });
   }
+
+  // Get Recipe Information  Call (returns the information of a single recipe, given by recipe ID)
+  async getRecipeInformation(id) {
+    return await this.request({ endpoint: `recipes/${id}/information`, method: `GET` });
+  }
+
+
+  // Get Bulk Recipe Information Call (returns information for multiple recipes, given by an array of recipe IDs)
+  async getBulkRecipeInformation(ids) {
+    // Join the ids array into a comma-separated string
+    const idsString = ids.join(",");
+    return await this.request({ endpoint: `recipes/informationBulk/${idsString}`, method: `GET` });
+  }
+
+    // Advanced Recipe Search Call (returns recipes IDs that match various filter parameters)
+    async searchRecipes(filters) {
+      return await this.request({ endpoint: `recipes/complexSearch`, method: `GET`, data: filters });
+    }
+
+  
 }
 
 
