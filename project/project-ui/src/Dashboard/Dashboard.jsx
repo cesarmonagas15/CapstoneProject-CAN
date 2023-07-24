@@ -31,7 +31,7 @@ export default function Dashboard({appState}) {
           <hr className="divider"/>
           <br/>
           {/* CHANGE TO FAV RECIPES */}
-          <RecipeGrid/>
+          {/* <RecipeGrid/> */}
         </div>
         <Link to="/">
         <div className="search-more-container">
