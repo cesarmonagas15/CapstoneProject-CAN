@@ -8,6 +8,7 @@ import RegistrationPage from './RegistrationPage/RegistrationPage';
 import Navbar from './Navbar/Navbar';
 import LoginPage from './LoginPage/LoginPage';
 import Dashboard from './Dashboard/Dashboard';
+import RecipeDetails from './RecipeDetails/RecipeDetails';
 
 function App() {
   const [appState, setAppState] = useState({});
@@ -23,7 +24,6 @@ function App() {
     if (token) {
       // decode in the backend
       const response = await axios.post("http://localhost:3001/auth/token", {token});
-      console.log(response.data.decodedToken)
       setAppState(response.data.decodedToken);
       setIsLoggedIn(true)
     }}
@@ -70,6 +70,12 @@ function App() {
                 />
             }
           />
+
+          <Route
+              path="/recipe-details"
+              element={<RecipeDetails/>}
+          />
+
         </Routes>
       </BrowserRouter>
     </div>
