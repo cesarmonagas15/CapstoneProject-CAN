@@ -3,10 +3,10 @@ import "./PantryFilter.css";
 import { useState, useEffect } from "react";
 
 
-export default function PantryFilter() {
+export default function PantryFilter({selectedIngredients, setSelectedIngredients}) {
 
     const [apiResponse, setApiResponse] = useState(null);
-    const [selectedIngredients, setSelectedIngredients] = useState([]);
+    // const [selectedIngredients, setSelectedIngredients] = useState([]); // State to use for apicalls. Contains selected ingredients
     const [searchValue, setSearchValue] = useState("");
   
     useEffect(() => {
@@ -95,6 +95,8 @@ export default function PantryFilter() {
         <button className="submitIngredients">Submit Ingredients</button>
       </>
     );
+
+    console.log("selected Ingredients", selectedIngredients)
 
     
   return (

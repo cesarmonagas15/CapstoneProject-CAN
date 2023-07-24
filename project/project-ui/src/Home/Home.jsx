@@ -5,6 +5,17 @@ import PantryFilter from "../PantryFilter/PantryFilter";
 import RecipeGrid from "../RecipeGrid/RecipeGrid";
 
 export default function Home() {
+
+  const [filterState, setFilterState] = useState({
+    maxReadyTime: "",
+    selectedSubOptions: {
+      dietary: [],
+      cuisine: [],
+      meal: [],
+    },
+  });
+
+  const [selectedIngredients, setSelectedIngredients] = useState([]); // State to use for apicalls. Contains selected ingredients
   
 
   return (
@@ -22,12 +33,12 @@ export default function Home() {
         </div>
       </div>
 
-      <FilterOptions />
+      <FilterOptions filterState = {filterState} setFilterState = {setFilterState} />
       
       <div className="home-content">
         <RecipeGrid />
 
-        <PantryFilter />
+        <PantryFilter selectedIngredients = {selectedIngredients} setSelectedIngredients = {setSelectedIngredients}/>
       </div>
     </div>
   );

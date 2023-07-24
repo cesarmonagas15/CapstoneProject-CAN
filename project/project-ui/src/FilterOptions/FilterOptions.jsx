@@ -2,7 +2,7 @@ import * as React from "react";
 import "./FilterOptions.css";
 import { useState } from "react";
 
-export default function FilterOptions() {
+export default function FilterOptions({filterState, setFilterState}) {
 
     const [selectedOption, setSelectedOption] = useState("");
     const [selectedSubOption, setSelectedSubOption] = useState("");
@@ -11,14 +11,14 @@ export default function FilterOptions() {
     const [showMealTypes, setShowMealTypes] = useState(false);
     const [showTimeRange, setShowTimeRange] = useState(false);
   
-    const [filterState, setFilterState] = useState({
-      maxReadyTime: "",
-      selectedSubOptions: {
-        dietary: [],
-        cuisine: [],
-        meal: [],
-      },
-    });
+    // const [filterState, setFilterState] = useState({
+    //   maxReadyTime: "",
+    //   selectedSubOptions: {
+    //     dietary: [],
+    //     cuisine: [],
+    //     meal: [],
+    //   },
+    // });
   
     const handleOptionClick = (option) => {
       setSelectedOption(option);
@@ -80,6 +80,25 @@ export default function FilterOptions() {
           })
     }
 
+    const handleClearTime = () => {
+
+        setFilterState((prevState) => ({
+            ...prevState,
+            maxReadyTime: ""
+        }))
+    }
+
+    // Helper function to check if there are any selected sub-options in filterState
+    const hasSelectedSubOptions = () => {
+        for (const category in filterState.selectedSubOptions) {
+            if (filterState.selectedSubOptions[category].length > 0 || filterState.maxReadyTime != "") {
+                return true;
+            }
+        }
+
+    return false;
+    };
+
     
   
     console.log(filterState);
@@ -108,6 +127,16 @@ export default function FilterOptions() {
         { label: "< 2 hr", value: 120 },
       ],
     };
+
+    const filterTitle = 
+    <>
+    <h3>Selected Filters:</h3>
+    </>
+
+    const clearFilterButton = 
+    <>
+    {<button id="clear-cart" className="selected-options-button" onClick={handleClearFilter}> Clear </button>}
+    </>
   
     return (
       <>
@@ -165,7 +194,7 @@ export default function FilterOptions() {
             ))}
         </div>
         <div className="selected-options">
-          <h3>Selected Filters:</h3>
+        {hasSelectedSubOptions() && filterTitle}
           {Object.keys(filterState.selectedSubOptions).map((category) => {
             if (category !== "time") {
               return filterState.selectedSubOptions[category].map((subOption) => (
@@ -183,9 +212,9 @@ export default function FilterOptions() {
   
           {/* Display maxReadyTime if it has a value */}
           {filterState.maxReadyTime && (
-            <button className="selected-options-button">{filterState.maxReadyTime}</button>
+            <button className="selected-options-button" onClick={handleClearTime}>{filterState.maxReadyTime}</button>
           )}
-          {<button id="clear-cart" className="selected-options-button" onClick={handleClearFilter}> Clear </button>}
+          {hasSelectedSubOptions() && clearFilterButton}
         </div>
       </>
     );
