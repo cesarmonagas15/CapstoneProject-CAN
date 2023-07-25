@@ -13,7 +13,7 @@ class ApiClient {
   async request({ endpoint, method, data = {} }) {
     const url = `${this.remoteHostUrl}/${endpoint}`
     console.debug("API Call:", endpoint, data, method)
-    const params = method === "get" ? data : {}
+    const params = method === "GET" ? data : {}
 
     
     const headers = {
@@ -47,7 +47,7 @@ class ApiClient {
 
   // Get Recipe Information  Call (returns the information of a single recipe, given by recipe ID)
   async getRecipeInformation(id) {
-    return await this.request({ endpoint: `recipes/${id}/information`, method: `GET` });
+    return await this.request({ endpoint: `spoon/recipes/${id}/information`, method: `GET` });
   }
 
 
@@ -55,13 +55,29 @@ class ApiClient {
   async getBulkRecipeInformation(ids) {
     // Join the ids array into a comma-separated string
     const idsString = ids.join(",");
-    return await this.request({ endpoint: `recipes/informationBulk/${idsString}`, method: `GET` });
+    return await this.request({ endpoint: `spoon/recipes/informationBulk/${idsString}`, method: `GET` });
   }
 
     // Advanced Recipe Search Call (returns recipes IDs that match various filter parameters)
     async searchRecipes(filters) {
-      return await this.request({ endpoint: `recipes/complexSearch`, method: `GET`, data: filters });
+      return await this.request({ endpoint: `spoon/recipes/complexSearch`, method: `GET`, data: filters });
     }
+
+  // ---------------------------------------FAVORITE RECIPES CALLS START HERE ----------------------------------------//
+  // Add a recipe to favorites
+  async addFavoriteRecipe(userId, recipeId) {
+    return await this.request({ endpoint: `saved`, method: `POST`, data: { userId, recipeId } });
+  }
+
+  // Get all favorite recipes of a user
+  async getFavoriteRecipes(userId) {
+    return await this.request({ endpoint: `saved/${userId}`, method: `GET` });
+  }
+
+  // Remove a recipe from favorites
+  async removeFavoriteRecipe(userId, recipeId) {
+    return await this.request({ endpoint: `saved/${userId}/${recipeId}`, method: `DELETE` });
+  }
 
   
 }

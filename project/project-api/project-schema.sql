@@ -1,4 +1,5 @@
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS favorites CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
 
 
 
@@ -12,6 +13,8 @@ CREATE TABLE users (
 );
 
 CREATE TABLE favorites (
-  recipe_id INT PRIMARY KEY,
-  user_id INT REFERENCES users(id)  
+  recipe_id INT NOT NULL,
+  user_id INT NOT NULL REFERENCES users(id),
+  PRIMARY KEY (recipe_id, user_id)
 );
+

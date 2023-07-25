@@ -3,23 +3,407 @@ import "./RecipeGrid.css";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import apiClient from "../../services/apiClient";
 
-export default function RecipeGrid() {
-  const [recipes, setRecipes] = useState([]);
+export default function RecipeGrid({ user }) {
+  // const [recipes, setRecipes] = useState([]);
 
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      const { data, error } = await apiClient.getRandomRecipes(1); //number of cards displayed
-      if (data) setRecipes(data.recipes);
-      if (error) console.error("Error fetching recipes:", error);
-    };
-    fetchRecipes();
-  }, []);
+  // useEffect(() => {
+  //   const fetchRecipes = async () => {
+  //     const { data, error } = await apiClient.getRandomRecipes(1); //number of cards displayed
+  //     if (data) setRecipes(data.recipes);
+  //     if (error) console.error("Error fetching recipes:", error);
+  //   };
+  //   fetchRecipes();
+  // }, []);
+
+  let recipes = [
+    {
+      vegetarian: true,
+      vegan: true,
+      glutenFree: true,
+      dairyFree: true,
+      veryHealthy: true,
+      cheap: false,
+      veryPopular: false,
+      sustainable: false,
+      lowFodmap: false,
+      weightWatcherSmartPoints: 2,
+      gaps: "GAPS_4",
+      preparationMinutes: -1,
+      cookingMinutes: -1,
+      aggregateLikes: 207,
+      healthScore: 100,
+      creditsText: "Full Belly Sisters",
+      license: "CC BY-SA 3.0",
+      sourceName: "Full Belly Sisters",
+      pricePerServing: 178.37,
+      extendedIngredients: [
+        {
+          id: 11011,
+          aisle: "Produce",
+          image: "asparagus.png",
+          consistency: "SOLID",
+          name: "asparagus",
+          nameClean: "asparagus",
+          original: "1 bag of frozen organic asparagus (preferably thawed)",
+          originalName: "frozen organic asparagus (preferably thawed)",
+          amount: 1.0,
+          unit: "bag",
+          meta: ["frozen", "organic", "thawed", "(preferably )"],
+          measures: {
+            us: {
+              amount: 1.0,
+              unitShort: "bag",
+              unitLong: "bag",
+            },
+            metric: {
+              amount: 1.0,
+              unitShort: "bag",
+              unitLong: "bag",
+            },
+          },
+        },
+        {
+          id: 1034053,
+          aisle: "Oil, Vinegar, Salad Dressing",
+          image: "olive-oil.jpg",
+          consistency: "LIQUID",
+          name: "evoo",
+          nameClean: "extra virgin olive oil",
+          original: "1T EVOO (extra virgin olive oil)",
+          originalName: "EVOO (extra virgin olive oil)",
+          amount: 1.0,
+          unit: "T",
+          meta: ["(extra virgin olive oil)"],
+          measures: {
+            us: {
+              amount: 1.0,
+              unitShort: "Tbsp",
+              unitLong: "Tbsp",
+            },
+            metric: {
+              amount: 1.0,
+              unitShort: "Tbsp",
+              unitLong: "Tbsp",
+            },
+          },
+        },
+        {
+          id: 11215,
+          aisle: "Produce",
+          image: "garlic.png",
+          consistency: "SOLID",
+          name: "garlic",
+          nameClean: "garlic",
+          original: "a couple of garlic cloves",
+          originalName: "a couple of garlic",
+          amount: 2.0,
+          unit: "cloves",
+          meta: [],
+          measures: {
+            us: {
+              amount: 2.0,
+              unitShort: "cloves",
+              unitLong: "cloves",
+            },
+            metric: {
+              amount: 2.0,
+              unitShort: "cloves",
+              unitLong: "cloves",
+            },
+          },
+        },
+        {
+          id: 11282,
+          aisle: "Produce",
+          image: "brown-onion.png",
+          consistency: "SOLID",
+          name: "onion",
+          nameClean: "onion",
+          original: "1/2 onion",
+          originalName: "onion",
+          amount: 0.5,
+          unit: "",
+          meta: [],
+          measures: {
+            us: {
+              amount: 0.5,
+              unitShort: "",
+              unitLong: "",
+            },
+            metric: {
+              amount: 0.5,
+              unitShort: "",
+              unitLong: "",
+            },
+          },
+        },
+        {
+          id: 11304,
+          aisle: "Produce",
+          image: "peas.jpg",
+          consistency: "SOLID",
+          name: "peas",
+          nameClean: "petite peas",
+          original: "2-3c of frozen organic peas",
+          originalName: "frozen organic peas",
+          amount: 2.0,
+          unit: "c",
+          meta: ["frozen", "organic"],
+          measures: {
+            us: {
+              amount: 2.0,
+              unitShort: "cups",
+              unitLong: "cups",
+            },
+            metric: {
+              amount: 290.0,
+              unitShort: "g",
+              unitLong: "grams",
+            },
+          },
+        },
+        {
+          id: 99253,
+          aisle: "Canned and Jarred",
+          image: "chicken-broth.png",
+          consistency: "LIQUID",
+          name: "vegetable broth",
+          nameClean: "low sodium vegetable broth",
+          original: "1 box low-sodium vegetable broth",
+          originalName: "low-sodium vegetable broth",
+          amount: 1.0,
+          unit: "box",
+          meta: ["low-sodium"],
+          measures: {
+            us: {
+              amount: 1.0,
+              unitShort: "box",
+              unitLong: "box",
+            },
+            metric: {
+              amount: 1.0,
+              unitShort: "box",
+              unitLong: "box",
+            },
+          },
+        },
+      ],
+      id: 716406,
+      title: "Asparagus and Pea Soup: Real Convenience Food",
+      readyInMinutes: 20,
+      servings: 2,
+      sourceUrl:
+        "http://fullbellysisters.blogspot.com/2011/03/asparagus-and-pea-soup-real-convenience.html",
+      image: "https://spoonacular.com/recipeImages/716406-556x370.jpg",
+      imageType: "jpg",
+      summary:
+        'Asparagus and Pea Soup: Real Convenience Food requires approximately <b>20 minutes</b> from start to finish. Watching your figure? This gluten free, dairy free, paleolithic, and lacto ovo vegetarian recipe has <b>217 calories</b>, <b>11g of protein</b>, and <b>8g of fat</b> per serving. This recipe serves 2. For <b>$1.78 per serving</b>, this recipe <b>covers 25%</b> of your daily requirements of vitamins and minerals. <b>Autumn</b> will be even more special with this recipe. It works well as a hor d\'oeuvre. 207 people have tried and liked this recipe. It is brought to you by fullbellysisters.blogspot.com. A mixture of vegetable broth, evoo, garlic, and a handful of other ingredients are all it takes to make this recipe so yummy. All things considered, we decided this recipe <b>deserves a spoonacular score of 96%</b>. This score is outstanding. Try <a href="https://spoonacular.com/recipes/asparagus-and-pea-soup-real-convenience-food-1393979">Asparagus and Pea Soup: Real Convenience Food</a>, <a href="https://spoonacular.com/recipes/asparagus-and-pea-soup-real-convenience-food-1376201">Asparagus and Pea Soup: Real Convenience Food</a>, and <a href="https://spoonacular.com/recipes/asparagus-and-pea-soup-real-convenience-food-1362341">Asparagus and Pea Soup: Real Convenience Food</a> for similar recipes.',
+      cuisines: [],
+      dishTypes: [
+        "soup",
+        "antipasti",
+        "starter",
+        "snack",
+        "appetizer",
+        "antipasto",
+        "hor d'oeuvre",
+      ],
+      diets: [
+        "gluten free",
+        "dairy free",
+        "paleolithic",
+        "lacto ovo vegetarian",
+        "primal",
+        "vegan",
+      ],
+      occasions: ["fall", "winter"],
+      winePairing: {
+        pairedWines: ["sparkling wine", "sparkling rose"],
+        pairingText:
+          "Sparkling Wine and Sparkling rosé are great choices for Antipasti. If you're serving a selection of appetizers, you can't go wrong with these. Both are very food friendly and complement a variety of flavors. One wine you could try is Le Grand Courtage Blanc de Blancs Brut. It has 4.9 out of 5 stars and a bottle costs about 19 dollars.",
+        productMatches: [
+          {
+            id: 464100,
+            title: "Le Grand Courtage Blanc de Blancs Brut",
+            description:
+              "The bouquet presents hints of green apple, honeysuckle, and toasted brioche. On the palate, a delicate balance of dryness and acidity lingers with a bit of Meyer lemon, honeydew and soft floral notes. The Blanc de Blancs Brut is very cuisine and cocktail-friendly. Try it with savory hors d'oeuvres, buttered popcorn, creamy pasta dishes, fried chicken, spicy Asian dishes, seafood, fruit-based desserts or semi-soft cheese. Mix with elderflower or fruit liqueurs, or fresh juice and quality spirits for a light, refreshing sparkling cocktail.The Blend: Chardonnay imparts depth and complexity for the overall balance while Chenin Blanc lends citrus and hints of honey for a creamy texture. Colombard's higher acidity provides structure, length and a pleasant minerality that is supplemented by the Ugni Blanc's fruit profile. Grapes are sourced from quality terroirs in France, such as Burgundy and Loire Valley.",
+            price: "$18.989999771118164",
+            imageUrl:
+              "https://spoonacular.com/productImages/464100-312x231.jpg",
+            averageRating: 0.9800000190734863,
+            ratingCount: 9.0,
+            score: 0.9442857333592006,
+            link: "https://click.linksynergy.com/deeplink?id=*QCiIS6t4gA&mid=2025&murl=https%3A%2F%2Fwww.wine.com%2Fproduct%2Fle-grand-courtage-blanc-de-blancs-brut%2F137803",
+          },
+        ],
+      },
+      instructions:
+        '<ol><li><span></span>Chop the garlic and onions.</li><li>Saute the onions in the EVOO, adding the garlic after a couple of minutes; cook until the onions are translucent. </li><li>Add the whole bag of asparagus and cover everything with the broth. </li><li>Season with salt and pepper and a pinch of red pepper flakes, if using.</li><li>Simmer until the asparagus is bright green and tender (if you\'ve thawed the asparagus it will only take a couple of minutes). </li><li>Turn off the heat and puree using an immersion blender.</li><li>Add peas (the heat of the soup will quickly thaw them) and puree until smooth; add more until it reaches the thickness you like.</li><li>Top with chives and a small dollop of creme fraiche <span class="Apple-style-span" style="background-color: initial; font-family: inherit; color: rgb(77, 77, 77);">or sour cream or greek yogurt.</span></li></ol><span class="Apple-style-span"></span>',
+      analyzedInstructions: [
+        {
+          name: "",
+          steps: [
+            {
+              number: 1,
+              step: "Chop the garlic and onions.",
+              ingredients: [
+                {
+                  id: 11215,
+                  name: "garlic",
+                  localizedName: "garlic",
+                  image: "garlic.png",
+                },
+                {
+                  id: 11282,
+                  name: "onion",
+                  localizedName: "onion",
+                  image: "brown-onion.png",
+                },
+              ],
+              equipment: [],
+            },
+            {
+              number: 2,
+              step: "Saute the onions in the EVOO, adding the garlic after a couple of minutes; cook until the onions are translucent.",
+              ingredients: [
+                {
+                  id: 11215,
+                  name: "garlic",
+                  localizedName: "garlic",
+                  image: "garlic.png",
+                },
+                {
+                  id: 11282,
+                  name: "onion",
+                  localizedName: "onion",
+                  image: "brown-onion.png",
+                },
+                {
+                  id: 1034053,
+                  name: "extra virgin olive oil",
+                  localizedName: "extra virgin olive oil",
+                  image: "olive-oil.jpg",
+                },
+              ],
+              equipment: [],
+            },
+            {
+              number: 3,
+              step: "Add the whole bag of asparagus and cover everything with the broth. Season with salt and pepper and a pinch of red pepper flakes, if using.Simmer until the asparagus is bright green and tender (if you've thawed the asparagus it will only take a couple of minutes). Turn off the heat and puree using an immersion blender.",
+              ingredients: [
+                {
+                  id: 1032009,
+                  name: "red pepper flakes",
+                  localizedName: "red pepper flakes",
+                  image: "red-pepper-flakes.jpg",
+                },
+                {
+                  id: 1102047,
+                  name: "salt and pepper",
+                  localizedName: "salt and pepper",
+                  image: "salt-and-pepper.jpg",
+                },
+                {
+                  id: 11011,
+                  name: "asparagus",
+                  localizedName: "asparagus",
+                  image: "asparagus.png",
+                },
+                {
+                  id: 1006615,
+                  name: "broth",
+                  localizedName: "broth",
+                  image: "chicken-broth.png",
+                },
+              ],
+              equipment: [
+                {
+                  id: 404776,
+                  name: "immersion blender",
+                  localizedName: "immersion blender",
+                  image: "immersion-blender.png",
+                },
+              ],
+            },
+            {
+              number: 4,
+              step: "Add peas (the heat of the soup will quickly thaw them) and puree until smooth; add more until it reaches the thickness you like.Top with chives and a small dollop of creme fraiche or sour cream or greek yogurt.",
+              ingredients: [
+                {
+                  id: 1001056,
+                  name: "creme fraiche",
+                  localizedName: "creme fraiche",
+                  image: "sour-cream.jpg",
+                },
+                {
+                  id: 1256,
+                  name: "greek yogurt",
+                  localizedName: "greek yogurt",
+                  image: "plain-yogurt.jpg",
+                },
+                {
+                  id: 1056,
+                  name: "sour cream",
+                  localizedName: "sour cream",
+                  image: "sour-cream.jpg",
+                },
+                {
+                  id: 11156,
+                  name: "chives",
+                  localizedName: "chives",
+                  image: "fresh-chives.jpg",
+                },
+                {
+                  id: 11304,
+                  name: "peas",
+                  localizedName: "peas",
+                  image: "peas.jpg",
+                },
+                {
+                  id: 0,
+                  name: "soup",
+                  localizedName: "soup",
+                  image: "",
+                },
+              ],
+              equipment: [],
+            },
+          ],
+        },
+      ],
+      report: null,
+      tips: {
+        health: [
+          "Before you pass up garlic because you don't want the bad breath that comes with it, keep in mind that the compounds that cause garlic breath also offer a lot of health benefits. Garlic has anti-inflammatory, antioxidant, antibacterial, and antiviral properties. If you really want to get the most health benefits out of your garlic, choose Spanish garlic, which contains the most allicin (one of garlic's most beneficial compounds).",
+        ],
+        price: [],
+        cooking: [
+          "To keep your eyes from stinging and watering while cutting onions, trying popping the onion in the freezer for 15 minutes before you plan to start cooking. Chilling the onion slows the release of the enzyme responsible for teary eyes.",
+          'You should not store your onions with your potatoes because the gases they emit will make each other spoil faster. For more information about selecting and storing onions, check out <a href="https://spoonacular.com/academy/onions">this lesson about onions</a> in the academy.',
+          "Size doesn't matter (when buying asparagus). Look for firm, straight stalks and an even green color. Leave limp and otherwise sad looking asparagus behind. Store in the fridge, but use within a few days.",
+          "Here's a trick for peeling garlic quickly. Put the garlic clove on your cutting board. Take a knife with a thick blade and place the blade flat across the garlic clove (the clove should be closer to the handle than the middle of the blade). Whack down on the flat side of the blade with your free hand to smoosh the garlic a bit. Done correctly, the skin will peel right off.",
+          'Extra-virgin olive oil is the least refined type of olive oil and therefore contains more of the beneficial compounds that get lost during processing. However, its minimal processing could also mean it has a lower smoke point than other olive oils. Once an oil starts to smoke, it begins to break down, producing a bad flavor and potentially harmful compounds. Unfortunately, the smoke point of an oil depends on so many factors that it is hard to say what the smoke point of an oil really is. For extra-virgin olive oil, it could be anywhere between 200-400 degrees Fahrenheit. Most people recommend using extra-virgin olive oil to add flavor to a finished dish or in cold dishes to be on the safe side. More refined olive oils, canola oil,  coconut oil, and <a href="https://spoonacular.com/academy/butter">clarified butter/ghee</a> are better options for high temperature cooking.',
+        ],
+        green: [
+          'According to the Environmental Working Group (EWG), asparagus is one of the "cleanest" vegetables when it comes to <a href="http://www.ewg.org/foodnews/summary.php">pesticide residue</a>, so you do not necessarily need to buy organic asparagus.',
+        ],
+      },
+      openLicense: 2,
+      suspiciousDataScore: 0.0,
+      approved: 2,
+      unknownIngredients: [],
+      userTags: [],
+      originalId: null,
+      spoonacularSourceUrl:
+        "https://spoonacular.com/asparagus-and-pea-soup-real-convenience-food-716406",
+    },
+  ];
 
   return (
     <>
       <div className="recipe-grid">
         {recipes.map((recipe) => (
-          <RecipeCard recipe={recipe} key={recipe.id} />
+          <RecipeCard user={user} recipe={recipe} key={recipe.id} />
         ))}
       </div>
     </>

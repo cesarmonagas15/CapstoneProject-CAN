@@ -6,6 +6,8 @@ const { NotFoundError } = require("./utils/errors")
 const config = require("./config")
 const authRoutes = require("./routes/auth")
 const spoonRoutes = require("./routes/spoon")
+const savedRoutes = require("./routes/saved") 
+
 
 const app = express();
 
@@ -23,6 +25,9 @@ app.get('/', function(req, res) {
 app.use("/auth", authRoutes)
 
 app.use("/spoon", spoonRoutes)
+
+app.use("/saved", savedRoutes) 
+
 
 
 app.use(function (req, res, next) {

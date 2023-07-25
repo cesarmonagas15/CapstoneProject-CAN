@@ -1,6 +1,6 @@
-import { useState , useEffect} from 'react'
+import { useState, useEffect } from "react";
 import axios from "axios";
-import './App.css'
+import "./App.css";
 import * as React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './Home/Home';
@@ -14,13 +14,12 @@ function App() {
   const [appState, setAppState] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-
-
-  useEffect( () => {
+  useEffect(() => {
     // check if user is logged in when user first accesses webpage
     const token = localStorage.getItem("token");
 
     const decode = async () => {
+
     if (token) {
       // decode in the backend
       const response = await axios.post("http://localhost:3001/auth/token", {token});
@@ -29,10 +28,9 @@ function App() {
     }}
 
     decode();
-  }, [])
+  }, []);
 
   return (
-    
     <div className="app">
       <BrowserRouter>
         <Navbar
@@ -41,9 +39,9 @@ function App() {
           setAppState={setAppState}
           appState={appState}
         />
-      
+
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home user={appState} />} />
           <Route
             path="/login"
             element={
@@ -64,11 +62,7 @@ function App() {
           />
           <Route
             path="/dashboard"
-            element={
-                <Dashboard
-                  appState={appState}
-                />
-            }
+            element={<Dashboard appState={appState} />}
           />
 
           <Route
@@ -79,7 +73,9 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
+
+
