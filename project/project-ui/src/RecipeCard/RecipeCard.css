@@ -71,9 +71,9 @@
     justify-content: space-between;
     padding: 0 20px; /* Add some horizontal padding */
     padding-bottom: 5px;
+    flex-direction: row;
   }
   .heart-icon-button {
-    position: absolute; /* Change this */
     right: 20px; /* Add this to align the button to the right */
     top: 220px; /* Adjust this to move the button up or down */
     background: none;

@@ -6,3 +6,10 @@
     gap: 30px 60px; /* Gap for both rows and columns */
     justify-content: center;
 }
+.recipe-grid a{
+    text-decoration: none;
+    color: inherit;
+}
+.recipe-grid a:visited {
+  color: inherit;
+}

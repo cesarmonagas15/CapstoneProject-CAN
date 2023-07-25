@@ -5,6 +5,7 @@ import { faClock } from "@fortawesome/free-regular-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import apiClient from "../../services/apiClient";
+import { Link } from "react-router-dom";
 
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
@@ -76,7 +77,9 @@ export default function RecipeCard({ recipe, user }) {
 
   return (
     <div className="recipe-card">
+      <Link to={"/recipe-details/" + recipe.id} >
       <img className="recipe-img" src={recipe.image} alt={recipe.title} />
+      </Link> 
       <div className="recipe-title-heart">
         <h2 className="recipe-title">{recipe.title}</h2>
         <button
