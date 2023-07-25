@@ -37,7 +37,7 @@ export default function Home({ user }) {
       />
 
       <div className="home-content">
-        <RecipeGrid user={user} />
+        <RecipeGrid user={user} filterState = {filterState} selectedIngredients = {selectedIngredients}/>
 
         <PantryFilter
           selectedIngredients={selectedIngredients}
