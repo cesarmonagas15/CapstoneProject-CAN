@@ -3,7 +3,7 @@ import "./PantryFilter.css";
 import { useState, useEffect } from "react";
 
 
-export default function PantryFilter({selectedIngredients, setSelectedIngredients}) {
+export default function PantryFilter({selectedIngredients, setSelectedIngredients, setIngredientsForAPI}) {
 
     const [apiResponse, setApiResponse] = useState(null);
     // const [selectedIngredients, setSelectedIngredients] = useState([]); // State to use for apicalls. Contains selected ingredients
@@ -83,6 +83,10 @@ export default function PantryFilter({selectedIngredients, setSelectedIngredient
           !selectedIngredients.includes(ingredient)
       );
     };
+
+    const handleIngredientsSubmit = () => {
+      setIngredientsForAPI(selectedIngredients)
+    }
   
     const showSelectedIngredients = (
       <>
@@ -92,7 +96,7 @@ export default function PantryFilter({selectedIngredients, setSelectedIngredient
   
     const showSubmitButton = (
       <>
-        <button className="submitIngredients">Submit Ingredients</button>
+        <button className="submitIngredients" onClick={handleIngredientsSubmit}>Submit Ingredients</button>
       </>
     );
 
@@ -136,7 +140,9 @@ export default function PantryFilter({selectedIngredients, setSelectedIngredient
             </div>
           </div>
 
-          {selectedIngredients.length > 0 && showSubmitButton}
+          {showSubmitButton}
+
+          {/* {selectedIngredients.length > 0 && showSubmitButton} */}
         </div>
     
     </>

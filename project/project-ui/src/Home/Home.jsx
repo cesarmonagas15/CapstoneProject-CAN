@@ -15,6 +15,7 @@ export default function Home({ user }) {
   });
 
   const [selectedIngredients, setSelectedIngredients] = useState([]);
+  const [ingredientsForAPI, setIngredientsForAPI] = useState([]);
   const [searchFilter, setSearchFilter] = useState(""); // the input when searching 
   const [searchInput, setSearchInput] = useState(""); // what is writing by the user before submitting
 
@@ -68,11 +69,14 @@ export default function Home({ user }) {
           user={user}
           filterState={filterState}
           selectedIngredients={selectedIngredients}
+          searchFilter = {searchFilter}
+          ingredientsForAPI = {ingredientsForAPI}
         />
 
         <PantryFilter
           selectedIngredients={selectedIngredients}
           setSelectedIngredients={setSelectedIngredients}
+          setIngredientsForAPI = {setIngredientsForAPI}
         />
       </div>
     </div>

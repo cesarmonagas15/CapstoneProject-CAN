@@ -13,3 +13,10 @@
 .recipe-grid a:visited {
   color: inherit;
 }
+
+.nextPage-buttons{
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+

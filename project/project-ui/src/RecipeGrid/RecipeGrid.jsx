@@ -3,8 +3,9 @@ import "./RecipeGrid.css";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import apiClient from "../../services/apiClient";
 
-export default function RecipeGrid({ user,filterState, selectedIngredients }) {
+export default function RecipeGrid({ user,filterState, selectedIngredients, searchFilter, ingredientsForAPI }) {
   const [recipes, setRecipes] = useState([]);
+  const [offset, setOffset] = useState(0);
 
   // useEffect(() => {
   //   const fetchRecipes = async () => {
@@ -17,7 +18,7 @@ export default function RecipeGrid({ user,filterState, selectedIngredients }) {
 
   useEffect(() => {
     const getRecipeIds = async () => {
-      const RecipeIdsRes = await apiClient.searchRecipes({maxReadyTime: filterState.maxReadyTime, cuisine: filterState.selectedSubOptions.cuisine, type: filterState.selectedSubOptions.meal, diet: filterState.selectedSubOptions.dietary, includeIngredients: selectedIngredients }); //filters (objects)
+      const RecipeIdsRes = await apiClient.searchRecipes({maxReadyTime: filterState.maxReadyTime, cuisine: filterState.selectedSubOptions.cuisine, type: filterState.selectedSubOptions.meal, diet: filterState.selectedSubOptions.dietary, includeIngredients: selectedIngredients, query: searchFilter, number: 12, offset: offset }); //filters (objects)
       if (RecipeIdsRes.error) {
         console.error("Error fetching recipe IDS:", RecipeIdsRes.error);
         return;
@@ -29,13 +30,29 @@ export default function RecipeGrid({ user,filterState, selectedIngredients }) {
 
       const recipeRes = await apiClient.getBulkRecipeInformation(RecipesIds);
       if (recipeRes.error){
-        console.error("Error fetching recipe IDS:", recipeRes.error);
-        return;
+        // console.error("Error fetching recipe IDS:", recipeRes.error);
+        setRecipes([])
+        return
       }
+      console.log('i am recipe response: ', RecipeIdsRes)
       setRecipes(recipeRes.data)
     };
     getRecipeIds();
-  }, [filterState, selectedIngredients]);
+  }, [filterState, ingredientsForAPI, searchFilter, offset]);
+
+
+
+  const handleNextOffset = ()=>{
+
+    setOffset(offset + 12) 
+  }
+
+  const handlePreviousOffset = () => {
+
+    if((offset - 12) >= 0) {
+      setOffset(offset - 12)
+    }
+  }
 
 
 
@@ -426,10 +443,18 @@ export default function RecipeGrid({ user,filterState, selectedIngredients }) {
 
   return (
     <>
+    <div className="recipes">
       <div className="recipe-grid">
         {recipes.map((recipe) => (
           <RecipeCard user={user} recipe={recipe} key={recipe.id} />
         ))}
+      </div>
+      <div className="nextPage-buttons">
+
+      <button onClick={handlePreviousOffset}>Previous</button>
+      <button>1</button>
+      <button onClick={handleNextOffset}>Next</button>
+      </div>
       </div>
     </>
   );
