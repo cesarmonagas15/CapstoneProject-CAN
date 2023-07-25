@@ -25,7 +25,7 @@ router.get('/recipes/random/:num', async (req, res) => {
 router.get('/recipes/:id/information', async (req, res) => {
     const id = req.params.id;
     try {
-      const apiResponse = await axios.get(`https://api.spoonacular.com/recipes/${id}/information`, {
+      const apiResponse = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true`, {
         headers: {
           'Content-Type': 'application/json',
           'x-api-key': SPOONACULAR_API_KEY,

@@ -45,7 +45,7 @@
 }
 .search-more-btn:hover{
     cursor: pointer;
-
+    transform:scale(1.1)
 }
 .search-more-btn-text{
     color: #E07A5F;
