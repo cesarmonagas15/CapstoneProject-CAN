@@ -9,6 +9,7 @@ import { faClock } from "@fortawesome/free-regular-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import apiClient from "../../services/apiClient";
 import { faThumbsUp } from "@fortawesome/free-regular-svg-icons";
+import RecipeNutritionFacts from "../RecipeNutritionFacts/RecipeNutritionFacts";
 
 
 
@@ -55,7 +56,10 @@ export default function RecipeDetails() {
           // Update the state with the new "done" instructions
           setDoneInstructions(newDoneInstructions);
         };
-        console.log(recipe)
+          const percentCarbs = recipe?.nutrition?.caloricBreakdown?.percentCarbs || '';
+          const percentFat = recipe?.nutrition?.caloricBreakdown?.percentFat || '';
+          const percentProtein = recipe?.nutrition?.caloricBreakdown?.percentProtein || '';
+        
   return (
     <>
       <button className="back-button" onClick={() => navigate(-1)}>
@@ -86,14 +90,14 @@ export default function RecipeDetails() {
                 <li className="details-item">
                   <div className="item-content">
                     {clockIcon}
-                    <span className="value">{recipe.readyInMinutes}</span>
+                    <span className="details-value">{recipe.readyInMinutes}</span>
                   </div>
                   <span className="title">Minutes</span>
                 </li>
                 <li className="details-item">
                   <div className="item-content">
                     {userIcon}
-                    <span className="value">{recipe.servings}</span>
+                    <span className="details-value">{recipe.servings}</span>
                   </div>
                   <span className="title">Servings</span>
                 </li>
@@ -101,7 +105,7 @@ export default function RecipeDetails() {
                 <li className="details-item">
                 <div className="item-content">
                   {thumbsUp}
-                  <span className="value">{recipe.aggregateLikes}</span>
+                  <span className="details-value">{recipe.aggregateLikes}</span>
                   </div>
                   <span className="title">Likes</span>
                 </li>
@@ -112,9 +116,11 @@ export default function RecipeDetails() {
             </div>
             <div className="recipe-details-container-ingredients">
               <h3>Ingredients:</h3>
-              <ul>
+              <ul className="ingredients-box">
                 {recipe.extendedIngredients?.map((ingredient) => (
-                  <li key={ingredient.id}>
+                  <li key={ingredient.id}
+                      className={checkedIngredients[ingredient.id] ? "checked" : ""}
+                  >
                     <label>
                       <input
                         type="checkbox"
@@ -129,15 +135,21 @@ export default function RecipeDetails() {
             </div>
           </div>
 
-          <div className="recipe-details-col-tips">
-            <h1>Tips</h1>
+          <div className="recipe-details-col-nutrution-facts">
+            <div className="recipe-details-nutrition-facts-container">
+            <RecipeNutritionFacts 
+              percentCarbs = {percentCarbs}
+              percentFat = {percentFat}
+              percentProtein = {percentProtein}
+               />
+            </div>
           </div>
         </div>
                 <div className="instructions-container">
         {recipe.analyzedInstructions ? (
               <div className="instructions">
                 <h3>Instructions:</h3>
-                <ul>
+                <ul className="instruction-list">
                   {recipe.analyzedInstructions[0].steps?.map(
                     (instruction, index) => (
                       <li
@@ -145,6 +157,7 @@ export default function RecipeDetails() {
                         onClick={() => handleInstructionClick(index)}
                         className={doneInstructions[index] ? "done" : ""} // Apply 'done' class conditionally
                       >
+                        <span>{instruction.number}</span>
                         {instruction.step}
                       </li>
                     )

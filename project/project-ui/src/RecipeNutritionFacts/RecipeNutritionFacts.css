@@ -1,0 +1,26 @@
+.nutrition-facts-container {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nutrition-facts-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .nutrition-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .nutrition-item strong {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .nutrition-item span {
+    color: #555;
+  }

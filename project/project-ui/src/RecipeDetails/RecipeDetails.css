@@ -12,7 +12,12 @@
   align-items: center;
   margin: 20px;
 }
-
+.details-value{
+  color:#E07A5F;
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
 .back-button {
   display: flex;
   justify-content: flex-start;
@@ -28,7 +33,7 @@
 
 .recipe-image img {
   width: 100%;
-  max-width: 500px;
+  max-width: 900px;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -46,7 +51,7 @@
   width: 80%;
   height: 3px;
   border: 0px;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
 }
 
 .recipe-summary-container {
@@ -59,6 +64,7 @@
 .recipe-summary {
   width: 100%;
   overflow-wrap: break-word;
+  text-align: justify;
   color: var(--primary-color);
 }
 
@@ -105,6 +111,12 @@
   color: var(--primary-color);
 }
 
+.ingredients-box{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .recipe-details-container-ingredients ul {
   list-style: none;
   padding-left: 0;
@@ -116,18 +128,52 @@
   line-height: 1.5;
 }
 
+/* Remove default checkbox styles */
 .recipe-details-container-ingredients li input[type="checkbox"] {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 20px;
-  height: 20px;
+  display: none;
 }
 
-.recipe-details-container-ingredients li input[type="checkbox"]:checked + label {
-  text-decoration: line-through;
-  color: #999;
+/* Create a custom checkbox style */
+.recipe-details-container-ingredients li label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  line-height: 1.5;
 }
+
+.recipe-details-container-ingredients li label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #E07A5F; /* Border color for the unchecked checkbox */
+  border-radius: 50%;
+}
+
+/* Style for the checked checkbox */
+.recipe-details-container-ingredients li.checked label::before {
+  background-color: #E07A5F; /* Background color for the checked checkbox */
+}
+
+.recipe-details-container-ingredients li label::after {
+  content: "\2713"; /* Unicode checkmark character */
+  position: absolute;
+  left: 5px;
+  top: -1px;
+  font-family: "Font Awesome"; /* Use Font Awesome for the checkmark */
+  font-size: 20px;
+  text-align: center;
+  color: #fff; /* Checkmark color for checked checkbox */
+  display: none;
+}
+
+/* Style for the checked checkbox */
+.recipe-details-container-ingredients li.checked label::after {
+  display: block;
+}
+
 
 .recipe-details-container-ingredients label {
   cursor: pointer;
@@ -139,7 +185,7 @@
 }
 
 .instructions ul {
-  list-style: number;
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -147,9 +193,30 @@
 
 .instructions li {
   position: relative;
-  padding-left: 30px;
+  padding-left: 60px;
   line-height: 1.5;
   cursor: pointer;
+}
+
+.instruction-list li span {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #E07A5F; /* Add border to the circular container */
+  background-color: #E07A5F;
+  border-radius: 100%;
+  font-weight: 500;
+  font-size: 14px;
+  color: #FFFF;
+}
+
+.recipe-details-nutrition-facts-container{
+  margin: 20px;
 }
 
 .instructions li.done {
@@ -161,7 +228,6 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  border: 1px solid var(--primary-color);
   border-radius: 4px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   transition: transform 0.5s ease;
@@ -174,6 +240,7 @@
   border-radius: 4px;
   border: 1px solid var(--secondary-color);
   color: var(--secondary-color);
+  background-color: inherit;
   font-size: 16px;
   cursor: pointer;
   transition: 0.2s ease;
