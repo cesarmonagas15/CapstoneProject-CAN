@@ -3,6 +3,7 @@ import "./RecipeGrid.css";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import apiClient from "../../services/apiClient";
 import RecipeCardLoader from "../Loaders/RecipeCardLoader";
+import Pagination from "materialui-pagination-component";
 
 export default function RecipeGrid({
   user,
@@ -14,6 +15,7 @@ export default function RecipeGrid({
   const [recipes, setRecipes] = useState([]);
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     const getRecipeIds = async () => {
@@ -34,6 +36,7 @@ export default function RecipeGrid({
         return;
       }
       const RecipesIds = RecipeIdsRes.data.results.map((result) => result.id);
+      setTotalPages(Math.ceil(RecipeIdsRes.data.totalResults/12)) // calculating total number of pages for 
 
       const recipeRes = await apiClient.getBulkRecipeInformation(RecipesIds);
       if (recipeRes.error) {
@@ -47,6 +50,12 @@ export default function RecipeGrid({
     getRecipeIds();
   }, [filterState, ingredientsForAPI, searchFilter, offset]);
 
+  useEffect(() => {
+
+    setOffset(0)
+    
+  }, [filterState, ingredientsForAPI, searchFilter]);
+
   const handleNextOffset = () => {
     setOffset(offset + 12);
   };
@@ -55,6 +64,15 @@ export default function RecipeGrid({
     if (offset - 12 >= 0) {
       setOffset(offset - 12);
     }
+  };
+
+  const [page, setPage] = useState(1);
+ 
+  const handleOnChange = (pageValue) => {
+    // Since the materialui-pagination-component uses 1-based indexing, we need to adjust the page value.
+    const page = pageValue - 1;
+    const newOffset = page * 12;
+    setOffset(newOffset);
   };
 
   return (
@@ -70,9 +88,32 @@ export default function RecipeGrid({
               ))}
         </div>
         <div className="nextPage-buttons">
-          <button onClick={handlePreviousOffset}>Previous</button>
+          {/* <button onClick={handlePreviousOffset}>Previous</button>
           <button>1</button>
-          <button onClick={handleNextOffset}>Next</button>
+          <button onClick={handleNextOffset}>Next</button> */}
+
+          <Pagination
+      variant="text" // Valid options are ["text", "outlined"].
+      selectVariant="select" // Valid options are ["button", "tab", "select"].
+      navigationVariant="icon" // Valid options are ["icon", "text"].
+      pageWindowVariant="standard" // Valid options are ["standard", "ellipsis"].
+      color="primary" // Passed down to Material-UI components.
+      indicatorColor="primary" // Passed down to Material-UI Tabs.
+      hideNavigation={false} // Hides the first, last, previous, & next page navigation buttons.
+      hideFirst={false} // Hides the first page navigation button.
+      hideLast={false} // Hides the last page navigation button.
+      hidePrevious={false} // Hides the previous page navigation button.
+      hideNext={false} // Hides the next page navigation button.
+      disableFirst={false} // Disables the first page navigation button.
+      disableLast={false} // Disables the last page navigation button.
+      disablePrevious={false} // Disables the previous page navigation button.
+      disableNext={false} // Disables the next page navigation button.
+      page={offset / 12 + 1} // Convert offset to page number for materialui-pagination-component
+      totalPages={totalPages}
+      onChange={handleOnChange}
+      elevation={null} // Passed down to Material-UI Paper component.
+      
+    />
         </div>
       </div>
     </>
