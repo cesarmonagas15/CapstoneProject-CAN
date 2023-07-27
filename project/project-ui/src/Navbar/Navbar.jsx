@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./Navbar.css";
 import { useNavigate, Link } from "react-router-dom";
-import canKitchenLogo from './cankitchen-logo2.png'
+import canKitchenLogoActive from './CanKitchen-activeLogo.png';
 // import profile-logo from "./profile-logo.svg";
 
 export default function Navbar({ isLoggedIn, setIsLoggedIn, setAppState, appState }) {
@@ -58,7 +58,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setAppState, appStat
     <nav>
       <div className="logo">
       <Link to='/'>
-        <img className="logo-image" src={canKitchenLogo}/>
+        <img className="logo-image" src={canKitchenLogoActive} alt="logo"/>
         </Link>
       </div>
       

@@ -165,7 +165,7 @@ export default function RecipeDetails() {
               <div className="instructions">
                 <h3>Instructions:</h3>
                 <ul className="instruction-list">
-                  {recipe.analyzedInstructions[0].steps?.map(
+                  {recipe?.analyzedInstructions[0]?.steps?.map(
                     (instruction, index) => (
                       <li
                         key={instruction.number}

@@ -20,11 +20,18 @@ body {
     text-decoration: none;
   }
 
+
   .logo-image{
-    height: 70px;
-    width: 100%;
+    height: 5%;
+    width: 10vw;
     border-radius: 4px;
+    background-size: cover;
+    transition: all 0.3s ease;
   }
+  .logo-image:hover{
+    content: url("./CanKitchen_logo.png");
+  }
+
   
   .links a {
     color: #000000;
