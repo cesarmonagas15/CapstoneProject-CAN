@@ -6,6 +6,7 @@ const PORT = process.env.PORT ? Number(process.env.PORT) : 3001;
 const IS_TESTING = process.env.NODE_ENV === 'test';
 const SECRET_KEY = process.env.SECRET_KEY || "secret-dev"
 const SPOONACULAR_API_KEY = process.env.SPOONACULAR_API_KEY;
+const RAPID_SPOONACULAR_API_KEY = process.env.RAPID_SPOONACULAR_API_KEY;
 
 
 function getDatabaseUri() {
@@ -34,5 +35,6 @@ module.exports = {
   getDatabaseUri,
   SECRET_KEY,
   SPOONACULAR_API_KEY,
+  RAPID_SPOONACULAR_API_KEY,
 
 };
