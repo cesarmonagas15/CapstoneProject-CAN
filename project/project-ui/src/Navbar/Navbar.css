@@ -9,8 +9,21 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .navbar {
+    /* Your regular styles for the Navbar */
+    height: 60px; /* Initial height of the Navbar before scrolling */
+    transition: height 0.3s; /* Add a smooth transition for the height change */
+  }
+  
+  .navbar.shrink {
+    height: 35px; /* Adjust this height to your desired "shrink" height */
   }
   
   .logo a {

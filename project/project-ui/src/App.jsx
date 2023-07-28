@@ -3,12 +3,13 @@ import axios from "axios";
 import "./App.css";
 import * as React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from './Home/Home';
-import RegistrationPage from './RegistrationPage/RegistrationPage';
-import Navbar from './Navbar/Navbar';
-import LoginPage from './LoginPage/LoginPage';
-import Dashboard from './Dashboard/Dashboard';
-import RecipeDetails from './RecipeDetails/RecipeDetails';
+import Home from "./Home/Home";
+import RegistrationPage from "./RegistrationPage/RegistrationPage";
+import Navbar from "./Navbar/Navbar";
+import LoginPage from "./LoginPage/LoginPage";
+import Dashboard from "./Dashboard/Dashboard";
+import RecipeDetails from "./RecipeDetails/RecipeDetails";
+import CustomFooter from "../Footer/Footer";
 
 function App() {
   const [appState, setAppState] = useState({});
@@ -19,13 +20,15 @@ function App() {
     const token = localStorage.getItem("token");
 
     const decode = async () => {
-
-    if (token) {
-      // decode in the backend
-      const response = await axios.post("http://localhost:3001/auth/token", {token});
-      setAppState(response.data.decodedToken);
-      setIsLoggedIn(true)
-    }}
+      if (token) {
+        // decode in the backend
+        const response = await axios.post("http://localhost:3001/auth/token", {
+          token,
+        });
+        setAppState(response.data.decodedToken);
+        setIsLoggedIn(true);
+      }
+    };
 
     decode();
   }, []);
@@ -65,17 +68,12 @@ function App() {
             element={<Dashboard appState={appState} />}
           />
 
-          <Route
-              path="/recipe-details/:id"
-              element={<RecipeDetails/>}
-          />
-
+          <Route path="/recipe-details/:id" element={<RecipeDetails />} />
         </Routes>
       </BrowserRouter>
+      <CustomFooter />
     </div>
   );
 }
 
 export default App;
-
-

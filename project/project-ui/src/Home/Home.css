@@ -25,6 +25,7 @@
     text-align: center;
     color: #ffffff;
     z-index: 1; /* Ensure the overlay is on top of the image */
+    width: 50%;
   }
   
   .HeroOverlay h1 {
@@ -45,6 +46,8 @@
     margin-right: 10px;
     font-size: 16px;
   }
+
+
   
   .SearchInput button {
     padding: 10px 20px;
@@ -55,6 +58,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    
   }
   
   .SearchInput button:hover {

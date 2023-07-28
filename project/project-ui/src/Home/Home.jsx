@@ -16,7 +16,7 @@ export default function Home({ user }) {
 
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [ingredientsForAPI, setIngredientsForAPI] = useState([]);
-  const [searchFilter, setSearchFilter] = useState(""); // the input when searching 
+  const [searchFilter, setSearchFilter] = useState(""); // the input when searching
   const [searchInput, setSearchInput] = useState(""); // what is writing by the user before submitting
 
   useEffect(() => {
@@ -35,8 +35,12 @@ export default function Home({ user }) {
   const handleInputChange = (event) => {
     setSearchInput(event.target.value); // Update the searchInput state as the user types
   };
+  const handleFormSubmit = (event) => {
+    event.preventDefault(); // prevent the form from being submitted the normal way (page refresh)
+    handleSearchFilter();
+  };
 
-  console.log('searchFilter', searchFilter)
+  console.log("searchFilter", searchFilter);
 
   return (
     <div className="HomeContainer">
@@ -46,7 +50,7 @@ export default function Home({ user }) {
           alt="Hero Image"
         />
         <div className="HeroOverlay">
-          <div className="SearchInput">
+          <form onSubmit={handleFormSubmit} className="SearchInput">
             <input
               type="text"
               placeholder="🔍 Search for recipe names"
@@ -54,32 +58,38 @@ export default function Home({ user }) {
               value={searchInput}
               onChange={handleInputChange} // Handle input change
             />
-            <button onClick={handleSearchFilter}>Filter</button>
-            <button className="CloseButton" onClick={handleDeleteSearch}>
+            {/* <button type="submit">Filter</button> */}
+            <button
+              type="button"
+              className="CloseButton"
+              onClick={handleDeleteSearch}
+            >
               X
             </button>
-          </div>
+          </form>
         </div>
       </div>
 
-      <FilterOptions filterState={filterState} setFilterState={setFilterState} />
+      <FilterOptions
+        filterState={filterState}
+        setFilterState={setFilterState}
+      />
 
       <div className="home-content">
         <RecipeGrid
           user={user}
           filterState={filterState}
           selectedIngredients={selectedIngredients}
-          searchFilter = {searchFilter}
-          ingredientsForAPI = {ingredientsForAPI}
+          searchFilter={searchFilter}
+          ingredientsForAPI={ingredientsForAPI}
         />
 
         <PantryFilter
           selectedIngredients={selectedIngredients}
           setSelectedIngredients={setSelectedIngredients}
-          setIngredientsForAPI = {setIngredientsForAPI}
+          setIngredientsForAPI={setIngredientsForAPI}
         />
       </div>
     </div>
   );
 }
-
