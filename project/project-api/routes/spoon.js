@@ -21,8 +21,8 @@ const HEADER_RAPIDAPI = {
 router.get('/recipes/random/:num', async (req, res) => {
     const num = req.params.num;
     try {
-      const apiResponse = await axios.get(`${BASE_URL_RAPIDAPI}random?number=${num}`, {
-        headers: HEADER_RAPIDAPI,
+      const apiResponse = await axios.get(`${BASE_URL_SPOONACULAR}random?number=${num}`, {
+        headers:HEADER_SPOONACULAR,
       });
   
       res.send(apiResponse.data);
@@ -35,8 +35,8 @@ router.get('/recipes/random/:num', async (req, res) => {
 router.get('/recipes/:id/information', async (req, res) => {
     const id = req.params.id;
     try {
-      const apiResponse = await axios.get(`${BASE_URL_RAPIDAPI}${id}/information?includeNutrition=true`, {
-        headers: HEADER_RAPIDAPI,
+      const apiResponse = await axios.get(`${BASE_URL_SPOONACULAR}${id}/information?includeNutrition=true`, {
+        headers: HEADER_SPOONACULAR,
       });
   
       res.send(apiResponse.data);
@@ -49,8 +49,8 @@ router.get('/recipes/:id/information', async (req, res) => {
 router.get('/recipes/informationBulk/:ids', async (req, res) => {
   const ids = req.params.ids;
   try {
-    const apiResponse = await axios.get(`${BASE_URL_RAPIDAPI}informationBulk?ids=${ids}`, {
-      headers: HEADER_RAPIDAPI,
+    const apiResponse = await axios.get(`${BASE_URL_SPOONACULAR}informationBulk?ids=${ids}`, {
+      headers: HEADER_SPOONACULAR,
     });
 
     res.send(apiResponse.data);
@@ -70,8 +70,8 @@ router.get('/recipes/complexSearch', async (req, res) => {
   });
   
   try {
-    const apiResponse = await axios.get(`${BASE_URL_RAPIDAPI}complexSearch?${queryStr}`, {
-      headers: HEADER_RAPIDAPI,
+    const apiResponse = await axios.get(`${BASE_URL_SPOONACULAR}complexSearch?${queryStr}`, {
+      headers: HEADER_SPOONACULAR,
     });
 
     res.send(apiResponse.data);
