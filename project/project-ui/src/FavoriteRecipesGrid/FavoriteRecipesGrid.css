@@ -1,0 +1,21 @@
+/* .favorite-recipes-grid{
+
+    display: flex;
+    
+} */
+
+.favorite-recipes-grid {
+    margin-left: 40px;
+   flex-wrap: wrap;
+    display: flex; /* Change this to grid */
+    /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); Adjust the minmax value according to the card's width */
+    gap: 30px 60px; /* Gap for both rows and columns */
+    justify-content: center;
+}
+.favorite-recipes-grid a{
+    text-decoration: none;
+    color: inherit;
+}
+.favorite-recipes-grid a:visited {
+  color: inherit;
+}
