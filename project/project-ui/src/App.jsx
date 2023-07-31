@@ -10,6 +10,7 @@ import LoginPage from "./LoginPage/LoginPage";
 import Dashboard from "./Dashboard/Dashboard";
 import RecipeDetails from "./RecipeDetails/RecipeDetails";
 import CustomFooter from "../Footer/Footer";
+import FoodShift from "./FoodShift/FoodShift";
 
 function App() {
   const [appState, setAppState] = useState({});
@@ -45,6 +46,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home user={appState} />} />
+          <Route path="/FoodShift" element={<FoodShift/>}/>
           <Route
             path="/login"
             element={
