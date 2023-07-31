@@ -14,7 +14,7 @@ class ApiClient {
     const url = `${this.remoteHostUrl}/${endpoint}`
     console.debug("API Call:", endpoint, data, method)
     const params = method === "GET" ? data : {}
-
+  
     
     const headers = {
       "Content-Type": "application/json",
@@ -34,7 +34,38 @@ class ApiClient {
     }
   }
 
+  //  ------------ LOGIN and REGISTER and authentication requests ----------- //
 
+  async getLogin(form) {
+    return await axios.post(
+      this.remoteHostUrl + "/auth/login",
+      form
+    );
+  };
+
+  async getToken(token) {
+    return await axios.post(
+      this.remoteHostUrl + "/auth/token", 
+      {token});
+  }
+  async getRegister(form) {
+    return await axios.post(
+      this.remoteHostUrl + "/auth/register",
+      {
+        firstName: form.firstName,
+        lastName: form.lastName,
+        username: form.username,
+        email: form.email,
+        password: form.password,
+      }
+    );
+  };
+
+  async getToken(token) {
+    return await axios.post(
+      this.remoteHostUrl + "/auth/token", 
+      {token});
+  }
 
 
 

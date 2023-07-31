@@ -3,6 +3,7 @@ import axios from "axios";
 import "./RegistrationPage.css"
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import apiClient from "../../services/apiClient";
 
 export default function RegistrationPage( {setAppState, setIsLoggedIn }) {
 
@@ -66,9 +67,7 @@ export default function RegistrationPage( {setAppState, setIsLoggedIn }) {
     }
 
     try {
-      const res = await axios.post(
-        "http://localhost:3001/auth/register",
-        {
+      const res = await apiClient.getRegister({
           firstName: form.firstName,
           lastName: form.lastName,
           username: form.username,
@@ -81,7 +80,7 @@ export default function RegistrationPage( {setAppState, setIsLoggedIn }) {
         const token = res.data.token;
         localStorage.setItem("token", token);
         // decoding in the backend
-        const response = await axios.post("http://localhost:3001/auth/token", {token});
+        const response = await apiClient.getToken(token);
         setAppState(response.data.decodedToken);
         setIsLoggedIn(true);
         setIsLoading(false);

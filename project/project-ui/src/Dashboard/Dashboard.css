@@ -55,3 +55,65 @@
   padding: 8px;
   text-align: center;
 }
+.login-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px; /* Adjust the height for larger screens */
+  width: 80%; /* Adjust the width for larger screens */
+  font-size: 20px;
+  color: #555;
+  margin: 90px auto; /* Adjust the margin to center the div horizontally */
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+    url("https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px; /* Add rounded corners if you want */
+
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    height: 300px; /* Adjust the height for smaller screens */
+    width: 90%; /* Adjust the width for smaller screens */
+    font-size: 16px;
+    margin: 30px auto; /* Adjust the margin for smaller screens */
+  }
+}
+
+
+
+
+.login-message-text {
+  margin-bottom: 10px;
+  background-color: rgba(129, 178, 154, 0.8); /* Semi-transparent background color */
+  padding: 15px;
+  border: 0px solid #32697c; /* Border color */
+  color: #fff; /* White text color */
+  text-align: center; /* Center the text horizontally */
+  width: 50%; /* Adjust the width as needed */
+}
+.login-btn{
+  width: 90px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid #E07A5F;
+  background: #FFF;
+  color: #E07A5F;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.login-btn:hover {
+  transform: scale(1.04);
+}
+.image-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.unregistered-image{
+  height: 100px;
+  width: 100px;
+}
+

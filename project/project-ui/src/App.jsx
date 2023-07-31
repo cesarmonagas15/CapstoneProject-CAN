@@ -11,6 +11,7 @@ import Dashboard from "./Dashboard/Dashboard";
 import RecipeDetails from "./RecipeDetails/RecipeDetails";
 import CustomFooter from "../Footer/Footer";
 import FoodShift from "./FoodShift/FoodShift";
+import apiClient from "./../services/apiClient";
 
 function App() {
   const [appState, setAppState] = useState({});
@@ -23,11 +24,16 @@ function App() {
     const decode = async () => {
       if (token) {
         // decode in the backend
-        const response = await axios.post("http://localhost:3001/auth/token", {
-          token,
-        });
-        setAppState(response.data.decodedToken);
-        setIsLoggedIn(true);
+        const response = await apiClient.getToken(token);
+        // check for expired token
+        if (response.data.decodedToken.exp * 1000 > Date.now()) {
+          setIsLoggedIn(true);
+          setAppState(response.data.decodedToken);
+        } else {
+          localStorage.removeItem("token");
+          setIsLoggedIn(false);
+          setAppState({});
+        }
       }
     };
 

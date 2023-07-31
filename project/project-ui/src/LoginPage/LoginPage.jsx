@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import apiClient from "../../services/apiClient";
 import "./LoginPage.css";
 
 export default function Login({ setAppState, setIsLoggedIn }) {
@@ -29,15 +30,13 @@ export default function Login({ setAppState, setIsLoggedIn }) {
     setErrors((e) => ({ ...e, form: null }));
 
     try {
-      const res = await axios.post(
-        "http://localhost:3001/auth/login",
-        form
-      );
+      const res = await apiClient.getLogin(form)
+      console.log(res)
       if (res?.data) {
         const token = res.data.token;
         localStorage.setItem("token", token);
         // decode token in the backend
-        const response = await axios.post("http://localhost:3001/auth/token", {token});
+        const response = await apiClient.getToken(token);
         setAppState(response.data.decodedToken);
         setIsLoggedIn(true);
         setIsLoading(false);
