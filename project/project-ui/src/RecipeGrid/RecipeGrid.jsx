@@ -109,7 +109,7 @@ export default function RecipeGrid({
       disablePrevious={false} // Disables the previous page navigation button.
       disableNext={false} // Disables the next page navigation button.
       page={offset / 12 + 1} // Convert offset to page number for materialui-pagination-component
-      totalPages={totalPages}
+      totalPages={totalPages % 500}
       onChange={handleOnChange}
       elevation={null} // Passed down to Material-UI Paper component.
       

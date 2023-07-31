@@ -3,6 +3,7 @@ import "./Home.css";
 import FilterOptions from "../FilterOptions/FilterOptions";
 import PantryFilter from "../PantryFilter/PantryFilter";
 import RecipeGrid from "../RecipeGrid/RecipeGrid";
+import AboutTeam from "../AboutTeam/AboutTeam";
 
 export default function Home({ user }) {
   const [filterState, setFilterState] = useState({
@@ -90,6 +91,9 @@ export default function Home({ user }) {
           setIngredientsForAPI={setIngredientsForAPI}
         />
       </div>
+      {/* <div className="aboutTeam">
+        <AboutTeam />
+      </div> */}
     </div>
   );
 }
