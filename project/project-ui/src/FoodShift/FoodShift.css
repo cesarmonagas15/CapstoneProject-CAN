@@ -10,7 +10,7 @@
 
 .foodshift-img {
   height: 100%;
-  width: 20vw;
+  width: 30vw; /* Use 100% width to make the images responsive */
   max-width: 500px;
   margin: 0 10px; /* Add some margin around the images */
 }
@@ -39,4 +39,61 @@ p {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 20px;
+}
+
+.bolded-orange {
+  color: #ff6600;
+}
+
+.bolded-green {
+  color: #3ca532;
+}
+
+.quote {
+  font-style: italic;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.quote-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto; /* Center the image horizontally with some space around it */
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.foodshift-button,
+.donate-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.foodshift-button {
+  background-color: #ff6600;
+}
+
+.donate-button {
+  background-color: #3ca532;
+}
+
+.foodshift-button:hover{
+  background-color: #e65700; /* Darker shade when hovering */
+}
+.donate-button:hover{
+  background-color: #149409; /* Darker shade when hovering */
 }
