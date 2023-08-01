@@ -12,6 +12,7 @@ import RecipeDetails from "./RecipeDetails/RecipeDetails";
 import CustomFooter from "../Footer/Footer";
 import FoodShift from "./FoodShift/FoodShift";
 import apiClient from "./../services/apiClient";
+import LandingPage from "./LandingPage/LandingPage";
 
 function App() {
   const [appState, setAppState] = useState({});
@@ -51,7 +52,8 @@ function App() {
         />
 
         <Routes>
-          <Route path="/" element={<Home user={appState} />} />
+          <Route path="/" element={<LandingPage user ={appState}/>} />
+          <Route path="/Recipes" element={<Home user ={appState}/>} />
           <Route path="/FoodShift" element={<FoodShift/>}/>
           <Route
             path="/login"
