@@ -59,11 +59,13 @@ export default function Navbar({
 
   useEffect(() => {
     const handleScroll = () => {
-      // Set a scroll threshold (e.g., 50 pixels) to determine when to apply the "shrink" effect
-      const scrollThreshold = 50;
-      if (window.scrollY > scrollThreshold) {
+      // Set a scroll thresholds
+      const addShrinkThreshold = 100;
+      const removeShrinkThreshold = 50;
+
+      if (!shrinkNavbar && window.scrollY > addShrinkThreshold) {
         setShrinkNavbar(true);
-      } else {
+      } else if (shrinkNavbar && window.scrollY < removeShrinkThreshold) {
         setShrinkNavbar(false);
       }
     };
@@ -74,7 +76,7 @@ export default function Navbar({
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [shrinkNavbar]); // Note that `shrinkNavbar` is now a dependency
 
   return (
     <nav className={`navbar ${shrinkNavbar ? "shrink" : ""}`}>
@@ -85,6 +87,9 @@ export default function Navbar({
       </div>
 
       <div className="links">
+        <Link to="/Recipes">
+          <a href="/recipes">Recipes</a>
+        </Link>
         <Link to="/AboutUs">
           <a href="/about">About Us</a>
         </Link>
