@@ -249,3 +249,14 @@
 .view-full-container:hover {
   transform: scale(1.03);
 }
+
+.heart-and-title{
+
+  display: flex;
+  align-items: center;
+}
+
+.heart-div{
+
+  margin-left: 40px;
+}

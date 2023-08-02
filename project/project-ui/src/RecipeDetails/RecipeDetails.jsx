@@ -85,8 +85,14 @@ export default function RecipeDetails({ user }) {
           <div className="recipe-image">
             <img src={recipe.image} alt={recipe.title} />
           </div>
+          <div className="heart-and-title">
+            <div className="title-details">
           <h1 className="recipe-details-recipe-title">{recipe.title}</h1>
+          </div>
+          <div className="heart-div">
           <FavoriteButton recipe={recipe} user={user} />
+          </div>
+          </div>
           <hr className="recipe-title-divider"></hr>
 
           <div className="recipe-details-columns">
