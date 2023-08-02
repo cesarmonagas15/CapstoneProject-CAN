@@ -10,8 +10,9 @@ import apiClient from "../../services/apiClient";
 import { faThumbsUp } from "@fortawesome/free-regular-svg-icons";
 import RecipeNutritionFacts from "../RecipeNutritionFacts/RecipeNutritionFacts";
 import RecipeDetailsLoader from "../Loaders/RecipeDetailsLoader";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
-export default function RecipeDetails() {
+export default function RecipeDetails({ user }) {
   const { id } = useParams();
   const [recipe, setRecipe] = useState({});
   const [loading, setLoading] = useState(false);
@@ -85,6 +86,7 @@ export default function RecipeDetails() {
             <img src={recipe.image} alt={recipe.title} />
           </div>
           <h1 className="recipe-details-recipe-title">{recipe.title}</h1>
+          <FavoriteButton recipe={recipe} user={user} />
           <hr className="recipe-title-divider"></hr>
 
           <div className="recipe-details-columns">

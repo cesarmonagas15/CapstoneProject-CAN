@@ -1,0 +1,16 @@
+.heart-icon-button {
+    right: 20px; /* Add this to align the button to the right */
+    top: 220px; /* Adjust this to move the button up or down */
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;  /* Add transition here */
+
+}
+  .heart-icon-button svg {
+    font-size: 18px;
+  }
+  .clicked {
+    transform: scale(1.1); /* makes the heart 30% larger */
+    transition: transform 0.4s; /* makes it smoothly transition over 0.3 seconds */
+}
