@@ -15,18 +15,22 @@ export default function LandingPage({ user }) {
   const totalBlocks = 5;
 
   const handleNext = () => {
-    setCurrentBlock((prevBlock) => (prevBlock === totalBlocks ? 1 : prevBlock + 1));
+    setCurrentBlock((prevBlock) =>
+      prevBlock === totalBlocks ? 1 : prevBlock + 1
+    );
   };
 
   const handlePrev = () => {
-    setCurrentBlock((prevBlock) => (prevBlock === 1 ? totalBlocks : prevBlock - 1));
+    setCurrentBlock((prevBlock) =>
+      prevBlock === 1 ? totalBlocks : prevBlock - 1
+    );
   };
 
   const carouselData = [
     {
       image: searchRecipes,
       title: "Find Delicious Recipes",
-      text: 'Discover a wide range of mouth-watering recipes from various cuisines.',
+      text: "Discover a wide range of mouth-watering recipes from various cuisines.",
     },
     {
       image: filters2,
@@ -36,26 +40,28 @@ export default function LandingPage({ user }) {
     {
       image: savedOne,
       title: "Personalized Favorites",
-      text: 'Save and organize your favorite recipes for easy access later.',
+      text: "Save and organize your favorite recipes for easy access later.",
     },
     {
       image: recipeDetails,
       title: "Recipe Details",
-      text: 'Save and organize your favorite recipes for easy access later.',
-    }
+      text: "Save and organize your favorite recipes for easy access later.",
+    },
   ];
 
   return (
     <>
       <div className="leaves-wrapper">
-      <div className="landing-div">
+        <div className="landing-div">
           <div className="landing-horizontal"></div>
           <div className="paragraphs-button">
             <div className="main-title">
-              <h1 className="main-header">BEST FOOD FOR YOUR TASTE</h1>
+              <h1 className="main-header">TEST YOUR TASTE</h1>
             </div>
             <div className="small-title">
-              <p className="small-hero">Use this website to find recipes with ingredients at home</p>
+              <p className="small-hero">
+                Use this website to find recipes with ingredients at home
+              </p>
             </div>
             <div className="search-buttons">
               <Link to="/Recipes">
@@ -72,11 +78,11 @@ export default function LandingPage({ user }) {
           </div>
         </div>
         <div className="features-">
-        <div id="features-title-container">
-              <h1 id="features-title">Come live the experience</h1>
-            </div>
-    </div>
-    <CarouselComponent carouselData={carouselData}/>
+          <div id="features-title-container">
+            <h1 id="features-title">Come live the experience</h1>
+          </div>
+        </div>
+        <CarouselComponent carouselData={carouselData} />
 
         <AboutTeam />
       </div>
