@@ -58,7 +58,7 @@ class User {
       [email]
     )
     const user = result.rows[0]
-    return user
+    return user || null;
   }
   static async fetchById(userId) {
     const result = await db.query(

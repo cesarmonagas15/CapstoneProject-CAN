@@ -1,5 +1,7 @@
 /* FoodShift.css */
 
+
+/* Hero section */
 .foodShift-hero {
   display: flex;
   justify-content: center;
@@ -15,6 +17,7 @@
   margin: 0 10px; /* Add some margin around the images */
 }
 
+/* Content container */
 .content-container {
   max-width: 800px; /* Set a maximum width for the content container */
   margin: 0 auto; /* Center the content container horizontally */
@@ -22,25 +25,30 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
 }
 
-h1 {
+/* Headings */
+.header h1 {
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-h2 {
+.header h2 {
   font-size: 24px;
   font-weight: bold;
   margin-top: 30px;
   margin-bottom: 10px;
 }
 
-p {
+/* Paragraphs */
+.description p,
+.mission p,
+.partnership p {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 20px;
 }
 
+/* Bolded text */
 .bolded-orange {
   color: #ff6600;
 }
@@ -49,6 +57,7 @@ p {
   color: #3ca532;
 }
 
+/* Quote section */
 .quote {
   font-style: italic;
   padding-left: 50px;
@@ -57,6 +66,7 @@ p {
   padding-bottom: 20px;
 }
 
+/* Image section */
 .quote-image {
   display: block;
   max-width: 100%;
@@ -64,7 +74,8 @@ p {
   margin: 20px auto; /* Center the image horizontally with some space around it */
 }
 
-.buttons-container {
+/* Buttons section */
+.foodshift-buttons-container {
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -91,9 +102,10 @@ p {
   background-color: #3ca532;
 }
 
-.foodshift-button:hover{
+.foodshift-button:hover {
   background-color: #e65700; /* Darker shade when hovering */
 }
-.donate-button:hover{
+
+.donate-button:hover {
   background-color: #149409; /* Darker shade when hovering */
 }
