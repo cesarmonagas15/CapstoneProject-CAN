@@ -8,6 +8,7 @@ import filters2 from "./filters2.png";
 import savedRecipe from "./saved-recipe.png";
 import savedOne from "./saved-one.png";
 import recipeDetails from "./recipe-details.png";
+import CarouselComponent from "../CarouselComponent/CarouselComponent";
 
 export default function LandingPage({ user }) {
   const [currentBlock, setCurrentBlock] = useState(1);
@@ -20,6 +21,29 @@ export default function LandingPage({ user }) {
   const handlePrev = () => {
     setCurrentBlock((prevBlock) => (prevBlock === 1 ? totalBlocks : prevBlock - 1));
   };
+
+  const carouselData = [
+    {
+      image: searchRecipes,
+      title: "Find Delicious Recipes",
+      text: 'Discover a wide range of mouth-watering recipes from various cuisines.',
+    },
+    {
+      image: filters2,
+      title: "Save Time Cooking",
+      text: "Get quick and easy-to-follow recipes that fit your busy schedule.",
+    },
+    {
+      image: savedOne,
+      title: "Personalized Favorites",
+      text: 'Save and organize your favorite recipes for easy access later.',
+    },
+    {
+      image: recipeDetails,
+      title: "Recipe Details",
+      text: 'Save and organize your favorite recipes for easy access later.',
+    }
+  ];
 
   return (
     <>
@@ -48,39 +72,11 @@ export default function LandingPage({ user }) {
           </div>
         </div>
         <div className="features-">
-        <div className="row">
-              <h1>Come live the experience</h1>
+        <div id="features-title-container">
+              <h1 id="features-title">Come live the experience</h1>
             </div>
-
-        <div className="benefits-and-features">
-            
-      <div className="feature">
-        <i className="fas fa-search"></i>
-        <img src={searchRecipes} className="img-search-1" />
-        <h3>Find Delicious Recipes</h3>
-        
-        <p>Discover a wide range of mouth-watering recipes from various cuisines.</p>
-      </div>
-      <div className="feature">
-        <i className="fas fa-clock"></i>
-        <img src={filters2} className="img-search-2" />
-        <h3>Save Time Cooking</h3>
-        <p>Get quick and easy-to-follow recipes that fit your busy schedule.</p>
-      </div>
-      <div className="feature">
-        <i className="fas fa-heart"></i>
-        <img src={savedOne} className="img-search-1" />
-        <h3>Personalized Favorites</h3>
-        <p>Save and organize your favorite recipes for easy access later.</p>
-      </div>
-      <div className="feature">
-        <i className="fas fa-heart"></i>
-        <img src={recipeDetails} className="img-search-2" />
-        <h3>Recipe Details</h3>
-        <p>Save and organize your favorite recipes for easy access later.</p>
-      </div>
     </div>
-    </div>
+    <CarouselComponent carouselData={carouselData}/>
 
         <AboutTeam />
       </div>
