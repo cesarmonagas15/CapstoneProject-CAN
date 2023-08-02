@@ -15,7 +15,7 @@ export default function RecipeCard({ recipe, user }) {
   return (
     <div className="recipe-card">
       <Link to={"/recipe-details/" + recipe.id}>
-        <img className="recipe-img" src={recipe.image} alt={recipe.title} />
+      <img className={recipe.image ? "recipe-img" : "fallback-img"} src={recipe.image ? recipe.image : fallback} alt={recipe.title} />
       </Link>
       <div className="recipe-title-heart">
         <h2 className="recipe-title">{recipe.title}</h2>

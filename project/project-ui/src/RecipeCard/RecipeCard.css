@@ -73,3 +73,10 @@
     padding-bottom: 5px;
     flex-direction: row;
   }
+
+  .fallback-img {
+    /* Styles for the fallback image */
+    width: 200px;
+    height: 200px;
+    /* Add any other styles for the fallback image here */
+  }
