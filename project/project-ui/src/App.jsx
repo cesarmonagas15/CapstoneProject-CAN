@@ -9,7 +9,7 @@ import Navbar from "./Navbar/Navbar";
 import LoginPage from "./LoginPage/LoginPage";
 import Dashboard from "./Dashboard/Dashboard";
 import RecipeDetails from "./RecipeDetails/RecipeDetails";
-import CustomFooter from "../Footer/Footer";
+import CustomFooter from "./Footer/Footer";
 import FoodShift from "./FoodShift/FoodShift";
 import apiClient from "./../services/apiClient";
 import LandingPage from "./LandingPage/LandingPage";
@@ -78,7 +78,7 @@ function App() {
             element={<Dashboard appState={appState} />}
           />
 
-          <Route path="/recipe-details/:id" element={<RecipeDetails />} />
+          <Route path="/recipe-details/:id" element={<RecipeDetails user ={appState}/>} />
         </Routes>
       </BrowserRouter>
       <CustomFooter />

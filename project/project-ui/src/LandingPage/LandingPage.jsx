@@ -47,8 +47,13 @@ export default function LandingPage({ user }) {
             />
           </div>
         </div>
+        <div className="features-">
+        <div className="row">
+              <h1>Come live the experience</h1>
+            </div>
 
         <div className="benefits-and-features">
+            
       <div className="feature">
         <i className="fas fa-search"></i>
         <img src={searchRecipes} className="img-search-1" />
@@ -74,6 +79,7 @@ export default function LandingPage({ user }) {
         <h3>Recipe Details</h3>
         <p>Save and organize your favorite recipes for easy access later.</p>
       </div>
+    </div>
     </div>
 
         <AboutTeam />
