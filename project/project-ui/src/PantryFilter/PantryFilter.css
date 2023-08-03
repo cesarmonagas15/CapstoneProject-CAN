@@ -78,7 +78,7 @@
     
     line-height: 1.5;
 }
-@mixin  poCentering {
+ poCentering {
     top: 50%;
     right: 50%;
     bottom: 50%;
@@ -86,6 +86,7 @@
     position: absolute;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    border-radius: 5px;
 }
 
 #IngredientSearchCard {
@@ -96,8 +97,6 @@
     /* box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137254902); */
     /* overflow-y: auto; */
 
-@include poCentering;
-  border-radius: 5px;
 }
 
 #searchInput {

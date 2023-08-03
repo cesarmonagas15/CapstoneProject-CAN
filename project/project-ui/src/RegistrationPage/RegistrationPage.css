@@ -14,7 +14,7 @@
     min-height: 100vh;
   }
   
-  .register-container .card {
+  .register-container .form-box {
     max-width: 520px;
     padding: 24px 80px 36px 80px;
     background: #fff;

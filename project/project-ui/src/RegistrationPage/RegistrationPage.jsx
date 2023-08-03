@@ -1,13 +1,11 @@
-import * as React from "react"
+import * as React from "react";
 import axios from "axios";
-import "./RegistrationPage.css"
+import "./RegistrationPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import apiClient from "../../services/apiClient";
 
-export default function RegistrationPage( {setAppState, setIsLoggedIn }) {
-
-
+export default function RegistrationPage({ setAppState, setIsLoggedIn }) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -20,7 +18,6 @@ export default function RegistrationPage( {setAppState, setIsLoggedIn }) {
     passwordConfirm: "",
     agreeToTerms: true,
   });
-  
 
   const handleOnInputChange = (event) => {
     if (event.target.name === "password") {
@@ -68,13 +65,12 @@ export default function RegistrationPage( {setAppState, setIsLoggedIn }) {
 
     try {
       const res = await apiClient.getRegister({
-          firstName: form.firstName,
-          lastName: form.lastName,
-          username: form.username,
-          email: form.email,
-          password: form.password,
-        }
-      );
+        firstName: form.firstName,
+        lastName: form.lastName,
+        username: form.username,
+        email: form.email,
+        password: form.password,
+      });
 
       if (res?.data?.user) {
         const token = res.data.token;
@@ -112,153 +108,150 @@ export default function RegistrationPage( {setAppState, setIsLoggedIn }) {
     });
   };
 
-  
-  
   return (
     <div className="RegistrationPage">
-        <div className="center">
-      <div className="register-container">
-      <div className="card">
-        <h2 className="header">Create an Account</h2>
-        <div className="form-container">
-          {Boolean(errors.form) && <span className="error">{errors.form}</span>}
-          <form onSubmit={handleOnSubmit}>
-            <div className="input-container">
-              <div role="group" className="email-input">
-                <input
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                  id="field-:rc:"
-                  required=""
-                  aria-required="true"
-                  className="email-input input"
-                  value={form.email}
-                  onChange={handleOnInputChange}
-                />
-              </div>
-
-              <div role="group" className="input-container">
-                <div className="username-input" data-group="true">
-                  <input
-                    name="username"
-                    type="text"
-                    placeholder="Username"
-                    id="field-:rd:"
-                    required=""
-                    aria-required="true"
-                    className="username-input input"
-                    value={form.username}
-                    onChange={handleOnInputChange}
-                  />
-                </div>
-              </div>
-
-              <div role="group" className="input-container">
-                <div className="firstname-input" data-group="true">
-                  <input
-                    type="text"
-                    name="firstName"
-                    placeholder="First name"
-                    id="field-:re:"
-                    required=""
-                    aria-required="true"
-                    className="firstname-input input"
-                    value={form.firstName}
-                    onChange={handleOnInputChange}
-                  />
-                </div>
-              </div>
-
-              <div role="group" className="input-container">
-                <div className="lastname-input" data-group="true">
-                  <input
-                    name="lastName"
-                    type="text"
-                    placeholder="Last name"
-                    id="field-:rf:"
-                    required=""
-                    aria-required="true"
-                    className="lastname-input input"
-                    value={form.lastName}
-                    onChange={handleOnInputChange}
-                  />
-                </div>
-              </div>
-
-              <div role="group" className="input-container">
-                <div className="password-input" data-group="true">
-                  <div className="icon-container">
-                    <svg
-                      className="icon"
-                      stroke="currentColor"
-                      fill="currentColor"
-                      stroke-width="0"
-                      viewBox="0 0 448 512"
-                      height="1em"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path>
-                    </svg>
-                  </div>
-                  <input
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    id="field-:rg:"
-                    required=""
-                    aria-required="true"
-                    className="password-input input"
-                    value={form.password}
-                    onChange={handleOnInputChange}
-                  />
-                </div>
-              </div>
-
-              <div role="group" className="input-container">
-                <div className="confirmpassword-input" data-group="true">
-                  <div className="icon-container">
-                    <svg
-                      className="icon"
-                      stroke="currentColor"
-                      fill="currentColor"
-                      stroke-width="0"
-                      viewBox="0 0 448 512"
-                      height="1em"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path>
-                    </svg>
+      <div className="center">
+        <div className="register-container">
+          <div className="form-box">
+            <h2 className="header">Create an Account</h2>
+            <div className="form-container">
+              {Boolean(errors.form) && (
+                <span className="error">{errors.form}</span>
+              )}
+              <form onSubmit={handleOnSubmit}>
+                <div className="input-container">
+                  <div role="group" className="email-input">
+                    <input
+                      name="email"
+                      type="email"
+                      placeholder="Email"
+                      id="field-:rc:"
+                      required=""
+                      aria-required="true"
+                      className="email-input input"
+                      value={form.email}
+                      onChange={handleOnInputChange}
+                    />
                   </div>
 
-                  <input
-                    name="passwordConfirm"
-                    type="password"
-                    placeholder="Confirm Password"
-                    id="field-:rh:"
-                    required=""
-                    aria-required="true"
-                    className="confirmpassword-input input"
-                    value={form.passwordConfirm}
-                    onChange={handleOnInputChange}
-                  />
-                </div>
-              </div>
+                  <div role="group" className="input-container">
+                    <div className="username-input" data-group="true">
+                      <input
+                        name="username"
+                        type="text"
+                        placeholder="Username"
+                        id="field-:rd:"
+                        required=""
+                        aria-required="true"
+                        className="username-input input"
+                        value={form.username}
+                        onChange={handleOnInputChange}
+                      />
+                    </div>
+                  </div>
 
-              <button type="submit" className="button">
-                Sign up
-              </button>
+                  <div role="group" className="input-container">
+                    <div className="firstname-input" data-group="true">
+                      <input
+                        type="text"
+                        name="firstName"
+                        placeholder="First name"
+                        id="field-:re:"
+                        required=""
+                        aria-required="true"
+                        className="firstname-input input"
+                        value={form.firstName}
+                        onChange={handleOnInputChange}
+                      />
+                    </div>
+                  </div>
+
+                  <div role="group" className="input-container">
+                    <div className="lastname-input" data-group="true">
+                      <input
+                        name="lastName"
+                        type="text"
+                        placeholder="Last name"
+                        id="field-:rf:"
+                        required=""
+                        aria-required="true"
+                        className="lastname-input input"
+                        value={form.lastName}
+                        onChange={handleOnInputChange}
+                      />
+                    </div>
+                  </div>
+
+                  <div role="group" className="input-container">
+                    <div className="password-input" data-group="true">
+                      <div className="icon-container">
+                        <svg
+                          className="icon"
+                          stroke="currentColor"
+                          fill="currentColor"
+                          stroke-width="0"
+                          viewBox="0 0 448 512"
+                          height="1em"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path>
+                        </svg>
+                      </div>
+                      <input
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        id="field-:rg:"
+                        required=""
+                        aria-required="true"
+                        className="password-input input"
+                        value={form.password}
+                        onChange={handleOnInputChange}
+                      />
+                    </div>
+                  </div>
+
+                  <div role="group" className="input-container">
+                    <div className="confirmpassword-input" data-group="true">
+                      <div className="icon-container">
+                        <svg
+                          className="icon"
+                          stroke="currentColor"
+                          fill="currentColor"
+                          stroke-width="0"
+                          viewBox="0 0 448 512"
+                          height="1em"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path>
+                        </svg>
+                      </div>
+
+                      <input
+                        name="passwordConfirm"
+                        type="password"
+                        placeholder="Confirm Password"
+                        id="field-:rh:"
+                        required=""
+                        aria-required="true"
+                        className="confirmpassword-input input"
+                        value={form.passwordConfirm}
+                        onChange={handleOnInputChange}
+                      />
+                    </div>
+                  </div>
+
+                  <button type="submit" className="button">
+                    Sign up
+                  </button>
+                </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
       </div>
-      </div>
     </div>
-
-    </div>
-  )
+  );
 }
-
-

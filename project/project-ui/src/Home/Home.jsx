@@ -3,7 +3,8 @@ import "./Home.css";
 import FilterOptions from "../FilterOptions/FilterOptions";
 import PantryFilter from "../PantryFilter/PantryFilter";
 import RecipeGrid from "../RecipeGrid/RecipeGrid";
-import AboutTeam from "../AboutTeam/AboutTeam";
+import { Input, ConfigProvider } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
 
 export default function Home({ user }) {
   const [filterState, setFilterState] = useState({
@@ -28,20 +29,16 @@ export default function Home({ user }) {
     setSearchFilter(searchInput); // Use searchInput as the value for filtering
   };
 
-  const handleDeleteSearch = () => {
-    setSearchInput(""); // Clear the search input
-    setSearchFilter(""); // Also clear the search filter
-  };
-
   const handleInputChange = (event) => {
-    setSearchInput(event.target.value); // Update the searchInput state as the user types
+    setSearchInput(event.target.value);
+    if (event.target.value === "") {
+      setSearchFilter(""); // Also clear the search filter
+    } // Update the searchInput state as the user types
   };
   const handleFormSubmit = (event) => {
     event.preventDefault(); // prevent the form from being submitted the normal way (page refresh)
     handleSearchFilter();
   };
-
-  console.log("searchFilter", searchFilter);
 
   return (
     <div className="HomeContainer">
@@ -51,23 +48,31 @@ export default function Home({ user }) {
           alt="Hero Image"
         />
         <div className="HeroOverlay">
-          <form onSubmit={handleFormSubmit} className="SearchInput">
-            <input
-              type="text"
-              placeholder="🔍 Search for recipe names"
-              id="searchInput"
-              value={searchInput}
-              onChange={handleInputChange} // Handle input change
-            />
-            {/* <button type="submit">Filter</button> */}
-            <button
-              type="button"
-              className="CloseButton"
-              onClick={handleDeleteSearch}
-            >
-              X
-            </button>
-          </form>
+          <ConfigProvider
+            theme={{
+              token: {
+                colorPrimary: "#ff6600",
+                controlHeightLG: 48,
+                lineWidth: 3.3,
+                colorTextPlaceholder: "rgba(0, 0, 0, .8)",
+              },
+            }}
+          >
+            <form onSubmit={handleFormSubmit} className="SearchInput">
+              <Input
+                size="large"
+                placeholder="Search recipes, ingredients, cuisines..."
+                id="search-bar"
+                value={searchInput}
+                onChange={handleInputChange}
+                allowClear
+                prefix={<SearchOutlined />}
+                style={{
+                  boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
+                }}
+              />
+            </form>
+          </ConfigProvider>
         </div>
       </div>
 
@@ -91,9 +96,6 @@ export default function Home({ user }) {
           setIngredientsForAPI={setIngredientsForAPI}
         />
       </div>
-      {/* <div className="aboutTeam">
-        <AboutTeam />
-      </div> */}
     </div>
   );
 }

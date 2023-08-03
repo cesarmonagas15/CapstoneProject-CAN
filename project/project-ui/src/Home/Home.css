@@ -33,13 +33,14 @@
     margin-bottom: 20px;
   }
   
-  .SearchInput {
+  /* .SearchInput {
     display: flex;
     align-items: center;
-    justify-content: center;
-  }
+    justify-content: center;s
+  } */
+ 
   
-  .SearchInput input {
+ /* .SearchInput input {
     padding: 10px 50px;
     border: none;
     border-radius: 20px;
@@ -59,11 +60,11 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     
-  }
+  } 
   
   .SearchInput button:hover {
     background-color: #e65c00;
-  }
+  } */
 
 .HomeContainer {
     text-align: center;

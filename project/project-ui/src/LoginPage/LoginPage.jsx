@@ -30,8 +30,8 @@ export default function Login({ setAppState, setIsLoggedIn }) {
     setErrors((e) => ({ ...e, form: null }));
 
     try {
-      const res = await apiClient.getLogin(form)
-      console.log(res)
+      const res = await apiClient.getLogin(form);
+      console.log(res);
       if (res?.data) {
         const token = res.data.token;
         localStorage.setItem("token", token);
@@ -61,7 +61,7 @@ export default function Login({ setAppState, setIsLoggedIn }) {
 
   return (
     <div className="Login">
-      <div className="card">
+      <div className="form-box">
         <h2>Login to the Portal</h2>
 
         {Boolean(errors.form) && <span className="error">{errors.form}</span>}
