@@ -3,7 +3,10 @@ import "./Navbar.css";
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import canKitchenLogoActive from "./CanKitchen-activeLogo.png";
-// import profile-logo from "./profile-logo.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { Button, ConfigProvider } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 
 export default function Navbar({
   isLoggedIn,
@@ -11,6 +14,9 @@ export default function Navbar({
   setAppState,
   appState,
 }) {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [shrinkNavbar, setShrinkNavbar] = useState(false);
+
   const navigate = useNavigate();
 
   const handleLogout = async (e) => {
@@ -20,42 +26,9 @@ export default function Navbar({
     setIsLoggedIn(false);
     navigate("/");
   };
-  const loggedIn = (
-    <>
-      <Link to="/dashboard">
-        <button className="user-button">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="feather feather-user"
-          >
-            <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" />
-          </svg>
-          <span className="name">{appState.firstName}</span>
-        </button>
-      </Link>
-      <button onClick={handleLogout}>Logout</button>
-    </>
-  );
-
-  const notLoggedIn = (
-    <>
-      <Link to="/login">
-        <button>Sign In</button>
-      </Link>
-
-      <Link to="/register">
-        <button>Register</button>
-      </Link>
-    </>
-  );
-
-  const [shrinkNavbar, setShrinkNavbar] = useState(false);
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,31 +49,81 @@ export default function Navbar({
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [shrinkNavbar]); // Note that `shrinkNavbar` is now a dependency
+  }, [shrinkNavbar]);
+
+  const loggedIn = (
+    <>
+      <li>
+        <Link to="/dashboard">
+          <Button
+            size="large"
+            type="primary"
+            icon={<UserOutlined />}
+            className="user-button"
+          >
+            {appState.firstName}
+          </Button>
+        </Link>
+      </li>
+
+      <li>
+        <Button size="large" onClick={handleLogout}>
+          Logout
+        </Button>
+      </li>
+    </>
+  );
+
+  const notLoggedIn = (
+    <>
+      <li>
+        <Link to="/login">
+          <Button colorPrimary="#ff6600" size="large" type="primary">
+            Sign In
+          </Button>
+        </Link>
+      </li>
+      <li>
+        <Link to="/register">
+          <Button size="large">Register</Button>
+        </Link>
+      </li>
+    </>
+  );
 
   return (
-    <nav className={`navbar ${shrinkNavbar ? "shrink" : ""}`}>
-      <div className="logo">
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: "#ff6600",
+        },
+      }}
+    >
+      <nav className={`navbar ${shrinkNavbar ? "shrink" : ""}`}>
         <Link to="/">
           <img className="logo-image" src={canKitchenLogoActive} alt="logo" />
         </Link>
-      </div>
 
-      <div className="links">
-        <Link to="/Recipes">
-          <a href="/recipes">Recipes</a>
-        </Link>
-        <Link to="/AboutUs">
-          <a href="/about">About Us</a>
-        </Link>
+        <ul className={`sidemenu ${isSidebarOpen ? "open" : ""}`}>
+          <li>
+            <Link to="/Recipes">Recipes</Link>
+          </li>
+          <li>
+            <Link to="/AboutUs">About Us</Link>
+          </li>
+          <li>
+            <Link to="/FoodShift">Food Shift</Link>
+          </li>
+          {isLoggedIn ? loggedIn : notLoggedIn}
 
-        <Link to="/FoodShift">
-          <a href="/food-shift">Food Shift</a>
-        </Link>
-      </div>
-      <div className="buttons">
-        <div className="content">{isLoggedIn ? loggedIn : notLoggedIn}</div>
-      </div>
-    </nav>
+          <i className="fa-solid fa-xmark" onClick={toggleSidebar}>
+            <FontAwesomeIcon icon={faXmark} />
+          </i>
+        </ul>
+        <i className="fa-solid fa-bars" onClick={toggleSidebar}>
+          <FontAwesomeIcon icon={faBars} />
+        </i>
+      </nav>
+    </ConfigProvider>
   );
 }

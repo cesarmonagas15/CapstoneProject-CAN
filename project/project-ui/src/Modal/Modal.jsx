@@ -1,4 +1,4 @@
-import { Button, Modal } from "antd";
+import { Button, Modal, ConfigProvider } from "antd";
 import { useNavigate } from "react-router-dom";
 
 export default function Popup({ isModalOpen, setIsModalOpen }) {
@@ -16,7 +16,13 @@ export default function Popup({ isModalOpen, setIsModalOpen }) {
     setIsModalOpen(false);
   };
   return (
-    <>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: "#ff6600",
+        },
+      }}
+    >
       <Modal
         style={{ top: 20 }}
         title="Save Your Favorite Recipes! 🥗"
@@ -24,15 +30,13 @@ export default function Popup({ isModalOpen, setIsModalOpen }) {
         open={isModalOpen}
         onCancel={handleCancel}
         footer={[
-          <Button key="back" onClick={handleCancel}>
+          <Button type="dashed" key="back" onClick={handleCancel}>
             Not now
           </Button>,
-          <Button type="primary" danger onClick={handleLogin}>
+          <Button type="primary" dnger onClick={handleLogin}>
             Sign in
           </Button>,
-          <Button danger onClick={handleRegister}>
-            Register
-          </Button>,
+          <Button onClick={handleRegister}>Register</Button>,
         ]}
       >
         <p>
@@ -41,6 +45,6 @@ export default function Popup({ isModalOpen, setIsModalOpen }) {
         </p>
         <br></br>
       </Modal>
-    </>
+    </ConfigProvider>
   );
 }
