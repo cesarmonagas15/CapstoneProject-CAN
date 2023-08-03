@@ -98,7 +98,7 @@
     border-radius: 0.6em;
     color: #1f003b;
     /* cursor: pointer; */
-    transition: 0.3s;
+    transition: 0.2s;
     background-color: #ffffff;
   }
   .card .img-container {
@@ -180,4 +180,10 @@
       max-width: 33.33%;
       padding: 0 1em;
     }
+  }
+
+
+  .card:hover a[href*="linkedin"] svg {
+    fill: white;
+    transition: 0.2s;
   }
