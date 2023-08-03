@@ -6,7 +6,7 @@ const RecipeDetailsLoader = (props) => (
     width={1500}
     height={800}
     viewBox="0 0 800 600"
-    backgroundColor="#f0f0f0"
+    backgroundColor = {'#D3D3D3'}
     foregroundColor="#dedede"
     {...props}
   >

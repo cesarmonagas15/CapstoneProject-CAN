@@ -2,7 +2,7 @@ import React from "react";
 import ContentLoader from "react-content-loader";
 
 const RecipeCardLoader = (props) => (
-  <ContentLoader viewBox="0 0 280 340" height={340} width={280} {...props}>
+  <ContentLoader viewBox="0 0 280 340" height={340} width={280} {...props} backgroundColor = {'#D3D3D3'}>
     {/* Recipe Image */}
     <rect x="0" y="0" rx="5" ry="5" width="280" height="200" />
 
