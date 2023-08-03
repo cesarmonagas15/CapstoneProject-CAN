@@ -4,6 +4,7 @@ import RecipeCard from "../RecipeCard/RecipeCard";
 import apiClient from "../../services/apiClient";
 import RecipeCardLoader from "../Loaders/RecipeCardLoader";
 import Pagination from "materialui-pagination-component";
+import NoResults from "../NoResults/NoResults";
 
 export default function RecipeGrid({
   user,
@@ -79,41 +80,46 @@ export default function RecipeGrid({
     <>
       <div className="recipes">
         <div className="recipe-grid">
-          {loading
-            ? Array(12)
-                .fill()
-                .map((_, index) => <RecipeCardLoader key={index} />)
-            : recipes.map((recipe) => (
-                <RecipeCard user={user} recipe={recipe} key={recipe.id} />
-              ))}
+          {loading ? (
+            Array(12)
+              .fill()
+              .map((_, index) => <RecipeCardLoader key={index} />)
+          ) : recipes.length === 0 ? (
+            <NoResults />
+          ) : (
+            recipes.map((recipe) => (
+              <RecipeCard user={user} recipe={recipe} key={recipe.id} />
+            ))
+          )}
         </div>
         <div className="nextPage-buttons">
           {/* <button onClick={handlePreviousOffset}>Previous</button>
           <button>1</button>
           <button onClick={handleNextOffset}>Next</button> */}
 
-          <Pagination
-      variant="text" // Valid options are ["text", "outlined"].
-      selectVariant="select" // Valid options are ["button", "tab", "select"].
-      navigationVariant="icon" // Valid options are ["icon", "text"].
-      pageWindowVariant="standard" // Valid options are ["standard", "ellipsis"].
-      color="primary" // Passed down to Material-UI components.
-      indicatorColor="primary" // Passed down to Material-UI Tabs.
-      hideNavigation={false} // Hides the first, last, previous, & next page navigation buttons.
-      hideFirst={false} // Hides the first page navigation button.
-      hideLast={false} // Hides the last page navigation button.
-      hidePrevious={false} // Hides the previous page navigation button.
-      hideNext={false} // Hides the next page navigation button.
-      disableFirst={false} // Disables the first page navigation button.
-      disableLast={false} // Disables the last page navigation button.
-      disablePrevious={false} // Disables the previous page navigation button.
-      disableNext={false} // Disables the next page navigation button.
-      page={offset / 12 + 1} // Convert offset to page number for materialui-pagination-component
-      totalPages={totalPages % 500}
-      onChange={handleOnChange}
-      elevation={null} // Passed down to Material-UI Paper component.
-      
-    />
+          {recipes.length > 0 ? <Pagination
+            variant="text" // Valid options are ["text", "outlined"].
+            selectVariant="select" // Valid options are ["button", "tab", "select"].
+            navigationVariant="icon" // Valid options are ["icon", "text"].
+            pageWindowVariant="standard" // Valid options are ["standard", "ellipsis"].
+            color="primary" // Passed down to Material-UI components.
+            indicatorColor="primary" // Passed down to Material-UI Tabs.
+            hideNavigation={false} // Hides the first, last, previous, & next page navigation buttons.
+            hideFirst={false} // Hides the first page navigation button.
+            hideLast={false} // Hides the last page navigation button.
+            hidePrevious={false} // Hides the previous page navigation button.
+            hideNext={false} // Hides the next page navigation button.
+            disableFirst={false} // Disables the first page navigation button.
+            disableLast={false} // Disables the last page navigation button.
+            disablePrevious={false} // Disables the previous page navigation button.
+            disableNext={false} // Disables the next page navigation button.
+            page={offset / 12 + 1} // Convert offset to page number for materialui-pagination-component
+            totalPages={totalPages % 500}
+            onChange={handleOnChange}
+            elevation={null} // Passed down to Material-UI Paper component.
+          /> : null}
+
+          
         </div>
       </div>
     </>

@@ -1,0 +1,22 @@
+.NoResults {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 200px; */
+  }
+  
+  .error-sign {
+    max-width: 300px;
+    height: auto;
+  }
+  
+  .NoResults-title {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .noResults-header {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+  }

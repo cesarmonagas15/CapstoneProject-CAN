@@ -1,0 +1,19 @@
+.error-sign{
+    max-width: 400px ;
+    height: auto;
+}
+
+.notFound {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  
+  .notFound-title {
+    text-align: center;
+    margin-top: 20px;
+  }
+  

@@ -13,6 +13,8 @@ import CustomFooter from "./Footer/Footer";
 import FoodShift from "./FoodShift/FoodShift";
 import apiClient from "./../services/apiClient";
 import LandingPage from "./LandingPage/LandingPage";
+import NotFound from "./NotFound/NotFound";
+
 
 function App() {
   const [appState, setAppState] = useState({});
@@ -52,6 +54,8 @@ function App() {
         />
 
         <Routes>
+          
+          <Route path="*" element={<NotFound/>} />
           <Route path="/" element={<LandingPage user ={appState}/>} />
           <Route path="/Recipes" element={<Home user ={appState}/>} />
           <Route path="/FoodShift" element={<FoodShift/>}/>
