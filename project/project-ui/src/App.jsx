@@ -14,6 +14,7 @@ import FoodShift from "./FoodShift/FoodShift";
 import apiClient from "./../services/apiClient";
 import LandingPage from "./LandingPage/LandingPage";
 import NotFound from "./NotFound/NotFound";
+import AboutUs from "./AboutUs/AboutUs";
 
 
 function App() {
@@ -80,6 +81,10 @@ function App() {
           <Route
             path="/dashboard"
             element={<Dashboard appState={appState} />}
+          />
+            <Route
+            path="/AboutUs"
+            element={<AboutUs/>}
           />
 
           <Route path="/recipe-details/:id" element={<RecipeDetails user ={appState}/>} />

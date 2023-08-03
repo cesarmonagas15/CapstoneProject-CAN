@@ -1,0 +1,292 @@
+/* Styles for the hero banner section */
+.hero-banner {
+    height: 600px;
+    background-image: url("https://images.unsplash.com/photo-1605522469906-3fe226b356bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2372&q=80");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .hero-title {
+    font-size: 80px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Styles for the mission section */
+  .mission-section {
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .mission-section h2 {
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0;
+    color: #E07A5F;
+    text-align: center;
+  }
+  
+  .mission-section p {
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  /* Styles for the app section */
+  .app-section {
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .app-section h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    color: #E07A5F;
+    text-align: center;
+  }
+  
+  .app-section p {
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  /* Styles for the wasted-food section */
+  .wasted-food-section {
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .wasted-food-section h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    color: #E07A5F;
+    text-align: center;
+  }
+  
+  .wasted-food-section p {
+    font-size: 20px;
+    text-align: center;
+  }
+.image-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .image-container img {
+    max-width: 40%;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px #bbbbbb;
+  }
+  
+  
+  /* Styles for the purpose section */
+  .purpose-section {
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    background-color: #eefddf4e;
+  }
+  
+  .purpose-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    color: #3ca532;
+    text-align: center;
+  }
+  .purpose-section p {
+    text-align: center;
+  }
+
+  .team-cards-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Common styles for team member card section */
+.team-member {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 2em 1em;
+    text-align: center;
+  }
+  
+  .team-member-card {
+    box-shadow: 0 0 2.4em rgba(25, 0, 58, 0.1);
+    padding: 3.5em 1em;
+    border-radius: 0.6em;
+    color: #1f003b;
+    /* cursor: pointer; */
+    transition: 0.3s;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .team-member-card .team-member-img-container {
+    width: 8em;
+    height: 8em;
+    background-color: #E07A5F;
+    padding: 0.5em;
+    border-radius: 50%;
+    margin: 0 auto 2em auto;
+    transition: all 0.4s ease-in-out;
+  }
+  
+  .team-member-card img {
+    width: 100%;
+    border-radius: 50%;
+  }
+  
+  .team-member-card h3 {
+    font-weight: 600;
+  }
+  
+  .team-member-initial {
+    display: inline-block;
+    font-size: 1.8em;
+    margin-right: 0.1em;
+    color: #d37739;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .team-member-name-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+  }
+  .team-member-column{
+    margin-left: 40px;
+    width: 80%;
+  }
+  .team-member-column2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  
+  .team-member-role {
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 0.5em 0 2em 0;
+    letter-spacing: 2px;
+  }
+  
+  .team-member-icons {
+    width: 50%;
+    min-width: 180px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .team-member-card a {
+    text-decoration: none;
+    color: #d37739;
+    font-size: 1.4em;
+  }
+
+  
+  .team-member-card:hover .team-member-img-container {
+    transform: scale(1.15);
+  }
+
+  .team-member-bio {
+    font-size: 20px;
+    width: 50%
+  }
+  
+
+
+
+
+
+
+
+
+  
+  /* Media Queries for Responsiveness */
+  @media screen and (max-width: 768px) {
+    .hero-title {
+      font-size: 48px;
+    }
+  
+    .mission-section h2,
+    .app-section h2,
+    .wasted-food-section h2 {
+      font-size: 30px;
+      text-align: center;
+    }
+  
+    .mission-section p,
+    .app-section p,
+    .wasted-food-section p {
+      font-size: 16px;
+    }
+    .image-container {
+        max-width: 100%; 
+      }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .hero-banner {
+      height: 300px;
+    }
+  
+    .hero-title {
+      font-size: 36px;
+    }
+  
+    .mission-section,
+    .app-section,
+    .wasted-food-section {
+      padding: 10px;
+    }
+  
+    .mission-section h2{
+        font-size: 34px;
+    }
+    .app-section h2,
+    .wasted-food-section h2 {
+      font-size: 18px;
+    }
+  
+    .mission-section p,
+    .app-section p,
+    .wasted-food-section p {
+      font-size: 14px;
+    }
+    .image-container {
+        flex-direction: column; 
+        align-items: center; 
+      }
+    
+      .image-container img {
+        max-width: 100%;
+      }
+  }
+  

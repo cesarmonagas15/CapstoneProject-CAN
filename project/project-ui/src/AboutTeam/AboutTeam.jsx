@@ -48,6 +48,7 @@ export default function AboutTeam() {
                 role="Co-founder"
                 imgSrc="https://media.licdn.com/dms/image/C5603AQGrVMfcDLaZ-g/profile-displayphoto-shrink_800_800/0/1656529477079?e=1696464000&v=beta&t=afZtFwm2UGpPpAMEeJ-ZnBfL9N23uTyg6cMk4y7V7dQ"
                 linkedin= "https://www.linkedin.com/in/cesarmonagasromero/"
+                github="https://github.com/cesarmonagas15"
                 email = "mailto:cesar.monagas@utexas.edu"
               />
               <TeamMemberCard
@@ -56,6 +57,7 @@ export default function AboutTeam() {
                 role="Co-founder"
                 imgSrc="https://media.licdn.com/dms/image/D4E03AQH30jaDjkS_Sw/profile-displayphoto-shrink_800_800/0/1689459762276?e=1696464000&v=beta&t=8oUsoQ-USZXznOfnG9_JTyyVchS0BLkm42fVzvFRdw0"
                 linkedin= "https://www.linkedin.com/in/ana-camba/"
+                github="https://github.com/anacambag"
                 email = "mailto:anacamba@mit.edu"
               />
               <TeamMemberCard
@@ -65,6 +67,7 @@ export default function AboutTeam() {
                 imgSrc="https://media.licdn.com/dms/image/D5603AQGtLs-YEWn3rQ/profile-displayphoto-shrink_800_800/0/1665593217328?e=1696464000&v=beta&t=aHtkNAzFuIH6FB7zQpOyvbtCa6MrHViKGpx1TqiOo-I"
                 linkedin= "https://www.linkedin.com/in/nara-macias-aa25a424b/"
                 email = "mailto:nsmacias2@miners.utep.edu"
+                github="https://github.com/Lilnnara"
               />
             </div>
           </section>
