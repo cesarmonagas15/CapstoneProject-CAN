@@ -20,3 +20,32 @@
   margin-bottom: 20px;
 }
 
+@media only screen and (max-width: 768px){
+  #IngredientSearchCard {
+    background: var(--white);
+    padding: 30px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    height: auto;
+    width: auto;
+
+  }
+
+  .home-content {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    /* flex-direction: column; */
+    flex-direction: column-reverse;
+
+}
+#buttons-container-wrapper {
+  position: relative;
+  overflow-y: hidden;
+  max-height: 251px;
+}
+
+
+}
+
+
