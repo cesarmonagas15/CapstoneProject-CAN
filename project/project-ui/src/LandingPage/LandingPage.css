@@ -1,25 +1,30 @@
-.landing-div{
 
-
-    height: 100vh;
-    margin: 0;
-}
 
 .about-div{
     margin: 0;
 }
 
 .landing-div {
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /* width: 100%; */
+    min-height: 100vh;
+    background-image: url(landing-img.png);
+
+    background-size: cover;
+    background-position: center;
+    padding: 10px 10%;
+
+    
+
+
+}
+.leaves-wrapper {
+
+
 }
 
 .paragraphs-button {
     justify-content: left;
-    margin-left: 100px;
+    margin-left: 0%;
 }
 
 .landing-image {
@@ -35,13 +40,19 @@
 }
 
 .main-header{
-    font-size: 50px;
+  margin-top: 20%;
+    font-size: 60px;
     text-align: left;
+    color:#ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
 }
 
 .small-hero{
-    font-size: 20px;
+    font-size: 40px;
+
+    color:#ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .searchRecipes {
@@ -54,6 +65,8 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
 }
 
 .searchRecipes:hover {
@@ -93,29 +106,7 @@
   
   }
 
-  /* .search-img{
-    width: 380px;
-    height: 290px;
-    border-radius: 2%;
-  }
-
-  .filters-img{
-    width: 400px;
-    height: 190px;
-    border-radius: 2%;
-  }
-  .block-1{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-
-  .block-2{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  } */
-
+  
   .about-app {
     padding: 20px;
     text-align: center;
@@ -236,12 +227,55 @@
         transform: scale(0.8);
         transition: 1s ease;
     }
-      
+    .mobile-img {
+      display: none;
+    }
   
-  /* Media query for smaller screens */
-  @media (max-width: 768px) {
+  /* Media query for smaller screens  */
+  @media only screen and (max-width: 768px){
+
     .feature {
       flex-basis: calc(50% - 40px); /* Show two features per row on smaller screens */
     }
+      .hero-landing-img {
+    display: none;
   }
+  /* .mobile-img{
+    display: block;
+    z-index: -10;
+    
+  } */
+  .landing-div {
+
+    /* width: 100%; */
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-image: url(homepage-mobile.png);
+}
+/* .main-header{
+  font-size: 50px;
+  text-align: left;
+  color:#ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+
+} */
+.small-hero{
+  font-size: 30px;
+  color:#ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+.paragraphs-button {
+  justify-content: center;
+  margin:  5%;
+  margin-top: 70%;
   
+
+}
+
+
+
+  
+    }

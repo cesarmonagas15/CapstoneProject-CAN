@@ -9,6 +9,7 @@ import savedRecipe from "./saved-recipe.png";
 import savedOne from "./saved-one.png";
 import recipeDetails from "./recipe-details.png";
 import CarouselComponent from "../CarouselComponent/CarouselComponent";
+import homepageMobile from "./homepage-mobile.png";
 
 export default function LandingPage({ user }) {
   const [currentBlock, setCurrentBlock] = useState(1);
@@ -50,42 +51,40 @@ export default function LandingPage({ user }) {
   ];
 
   return (
-    <>
-      <div className="leaves-wrapper">
-        <div className="landing-div">
-          <div className="landing-horizontal"></div>
-          <div className="paragraphs-button">
-            <div className="main-title">
-              <h1 className="main-header">TEST YOUR TASTE</h1>
-            </div>
-            <div className="small-title">
-              <p className="small-hero">
-                Use this website to find recipes with ingredients at home
-              </p>
-            </div>
-            <div className="search-buttons">
-              <Link to="/Recipes">
-                <button className="searchRecipes">Search for recipes</button>
-              </Link>
-            </div>
+    <div className="leaves-wrapper">
+      <div className="landing-div">
+        <div className="landing-horizontal"></div>
+        <div className="paragraphs-button">
+          <div className="main-title">
+            <h1 className="main-header">Maximize Your Ingredients</h1>
           </div>
-          <div className="landing-image">
+          <div className="small-title">
+            <p className="small-hero">
+              Matching your ingredients to amazing recipes
+            </p>
+          </div>
+          <div className="search-buttons">
+            <Link to="/Recipes">
+              <button className="searchRecipes">Search for recipes</button>
+            </Link>
+          </div>
+        </div>
+        {/* <div className="landing-image">
             <img
               src="https://www.tourcollierville.com/wp-content/uploads/2021/03/Salad-Plate.png"
               alt="salad"
               className="hero-landing-img"
             />
-          </div>
-        </div>
-        <div className="features-">
-          <div id="features-title-container">
-            <h1 id="features-title">Come live the experience</h1>
-          </div>
-        </div>
-        <CarouselComponent carouselData={carouselData} />
-
-        <AboutTeam />
+          </div> */}
       </div>
-    </>
+      <div className="features-">
+        <div id="features-title-container">
+          <h1 id="features-title">Come live the experience</h1>
+        </div>
+      </div>
+      <CarouselComponent carouselData={carouselData} />
+
+      <AboutTeam />
+    </div>
   );
 }
