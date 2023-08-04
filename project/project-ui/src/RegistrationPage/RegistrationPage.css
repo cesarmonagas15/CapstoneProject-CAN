@@ -28,7 +28,6 @@
     font-weight: bold;
     font-size: 30px;
     line-height: 1.33;
-    color: #3D405B;
     text-align: center;
     margin-bottom: 20px;
   }
@@ -103,5 +102,55 @@
   
   .button:hover {
     background-color: #ff6600;
+  }
+  @media (max-width: 768px) {
+    .register-container {
+      padding: 20px;
+      min-height: auto;
+      background-size: cover;
+    }
+  
+    .register-container .form-box {
+      max-width: 320px;
+      padding-left: 50px;
+      padding-right: 50px;
+      border-radius: 15px;
+    }
+  
+    .header {
+      font-size: 24px;
+    }
+  
+    .form-container {
+      width: 100%;
+      padding: 15px;
+      border-radius: 10px;
+    }
+  
+    .input-container {
+      margin-bottom: 10px;
+    }
+  
+    .email-input .input,
+    .username-input .input,
+    .firstname-input .input,
+    .lastname-input .input,
+    .password-input .input,
+    .confirmpassword-input .input {
+      padding: 8px;
+    }
+  
+    .button {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    .icon-container {
+      padding: 8px;
+    }
+  
+    .icon {
+      font-size: 16px;
+    }
   }
   

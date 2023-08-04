@@ -34,7 +34,7 @@ export default function FoodShift() {
             people, by the people and with the people."
           </p>
         </div>
-        <div className="image-container">
+        <div className="quote-image-container">
           <img className="quote-image" src="https://foodshift.net/wp-content/uploads/2020/05/Homepage-Pic-1-1600x500-1.jpg" alt="Food Shift Image" />
         </div>
 

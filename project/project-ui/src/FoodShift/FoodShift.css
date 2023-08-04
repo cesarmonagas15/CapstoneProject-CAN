@@ -96,10 +96,12 @@
 
 .foodshift-button {
   background-color: #ff6600;
+  text-align: center;
 }
 
 .donate-button {
   background-color: #3ca532;
+  text-align: center;
 }
 
 .foodshift-button:hover {

@@ -123,6 +123,13 @@
   }
   
   /* Common styles for team member card section */
+
+.our-team-section h1{
+    width: 100%;
+    text-align: center;
+    font-size: 3.5em;
+    color: black;
+}
 .team-member {
     display: flex;
     flex-wrap: wrap;
@@ -135,7 +142,6 @@
     box-shadow: 0 0 2.4em rgba(25, 0, 58, 0.1);
     padding: 3.5em 1em;
     border-radius: 0.6em;
-    color: #1f003b;
     /* cursor: pointer; */
     transition: 0.3s;
     background-color: #ffffff;
@@ -211,7 +217,7 @@
   }
 
   
-  .team-member-card:hover .team-member-img-container {
+  .team-member-card .team-member-img-container:hover {
     transform: scale(1.15);
   }
 
@@ -289,4 +295,71 @@
         max-width: 100%;
       }
   }
+@media screen and (max-width: 768px) {
+    .team-member-card {
+      flex-direction: column;
+    }
+  
+    .team-member-img-container {
+      margin-bottom: 1em;
+    }
+  
+    .team-member-name-container {
+      flex-direction: column;
+    }
+  
+    .team-member-initial {
+      font-size: 1.4em;
+    }
+  
+    .team-member-role {
+      font-size: 14px;
+    }
+  
+    .team-member-icons {
+      width: 100%;
+      min-width: auto;
+      margin: 1em 0;
+      display: flex;
+      justify-content: space-evenly;
+    }
+  
+    .team-member-card a {
+      font-size: 1.2em;
+    }
+  
+    .team-member-bio {
+      font-size: 16px;
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .team-member-column {
+      margin-left: 0;
+      width: 100%;
+    }
+  
+    .team-member-img-container {
+      width: 6em;
+      height: 6em;
+    }
+  
+    .team-member-card h3 {
+      font-size: 20px;
+    }
+  
+    .team-member-role {
+      font-size: 12px;
+    }
+  
+    .team-member-icons {
+      min-width: auto;
+    }
+  
+    .team-member-card a {
+      font-size: 1em;
+    }
+  }
+  
   
