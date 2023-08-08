@@ -104,7 +104,7 @@ export default function FilterOptions({filterState, setFilterState}) {
     console.log(filterState);
   
     const options = {
-      dietary: ["Vegan", "Kosher", "Halal", "Gluten-free", "Vegetarian"],
+      dietary: ["Vegan", "Ketogenic", "Pescetarian", "Gluten-free", "Vegetarian"],
       cuisine: [
         "Italian",
         "Greek",
