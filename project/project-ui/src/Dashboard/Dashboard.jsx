@@ -35,7 +35,7 @@ export default function Dashboard({ appState }) {
                 {/* CHANGE TO FAV RECIPES */}
                 <FavoriteRecipesGrid user={appState} />
               </div>
-              <Link to="/">
+              <Link to="/Recipes">
                 <div className="search-more-container">
                   <button className="search-more-btn">
                     <p className="search-more-btn-text">SEARCH MORE</p>

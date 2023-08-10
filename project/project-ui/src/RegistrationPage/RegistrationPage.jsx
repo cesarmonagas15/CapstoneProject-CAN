@@ -80,7 +80,7 @@ export default function RegistrationPage({ setAppState, setIsLoggedIn }) {
         setAppState(response.data.decodedToken);
         setIsLoggedIn(true);
         setIsLoading(false);
-        navigate("/");
+        navigate("/Recipes");
       } else {
         setErrors((e) => ({
           ...e,
