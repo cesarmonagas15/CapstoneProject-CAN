@@ -60,7 +60,7 @@ export default function LandingPage({ user }) {
           </div>
           <div className="small-title">
             <p className="small-hero">
-              Matching your ingredients to amazing recipes
+              Matching your pantry to amazing recipes
             </p>
           </div>
           <div className="search-buttons">
@@ -69,13 +69,6 @@ export default function LandingPage({ user }) {
             </Link>
           </div>
         </div>
-        {/* <div className="landing-image">
-            <img
-              src="https://www.tourcollierville.com/wp-content/uploads/2021/03/Salad-Plate.png"
-              alt="salad"
-              className="hero-landing-img"
-            />
-          </div> */}
       </div>
       <div className="features-">
         <div id="features-title-container">
