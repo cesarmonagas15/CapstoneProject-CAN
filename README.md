@@ -1,8 +1,6 @@
-📝 `NOTE` Use this template repo to initialize the contents of your group's capstone repo project. As you work on your assignment over the course of the week, update the appropriate repo deliverables. All project planning should be included in the planning directory. (🚫 Remove this paragraph before submitting your assignment.)
+# FTL Capstone Project
 
-# SITE Capstone Project
-
-SITE Course Year: **2023**
+FTL Course Year: **2023**
 
 Cohort: **Codepath - Cohort 2**
 
@@ -17,10 +15,19 @@ Project Code Repository Links
 
 ## Project Overview
 
-Add a quick summary of what your project theme and objectives are. 
+CAN Kitchen is a platform that empowers adults to combat wasted food
+by offering a unique recipe filtering system based on ingredients
+available in their pantries.
 
-Deployment Website: **Add Link to Deployed Project**
+Deployment Website: **https://capstonecan.web.app/**
 
-### Open-source libraries used
+### Open-source libraries and technologies used
 
-- Add any links to open-source libraries used in your project.
+- Material UI, Ant Design UI libraries
+- JavaScript, React.js, Node.js, Express.js, PostgreSQL
+- Herouku, Render, Firebase
+
+### Video Walkthrough
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/5bdc66fa22694e00842fe89e897d1fd2?sid=30e82ef1-d6ca-4aaf-af9f-d5cb7f278e7e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
